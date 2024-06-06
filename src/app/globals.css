@@ -1,4 +1,17 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-  
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .margin-auto {
+    @apply mx-auto my-0;
+  }
+
+  .flex-column {
+    @apply flex flex-col;
+  }
+}

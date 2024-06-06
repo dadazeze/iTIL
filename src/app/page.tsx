@@ -1,8 +1,6 @@
-import { MenubarUI } from "@/components/common/MenuBarUI";
-import Image from "next/image";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-   <MenubarUI />
-  );
+export default function Main() {
+  redirect("/home");
+  return null;
 }
