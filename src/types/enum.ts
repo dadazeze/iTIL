@@ -1,6 +1,7 @@
 export const enum Role {
   FE = 'FE',
   BE = 'BE',
+  FULL = 'FULL',
   AI = 'AI',
   GAME = 'GAME',
   MOBILE = 'MOBILE',

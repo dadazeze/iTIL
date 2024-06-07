@@ -1,12 +1,13 @@
 import RadixIcon from '@/assets/radix-icon';
 import { Menubar } from '@/components/ui/menubar';
 import { Button } from '../ui/Button';
+import Typography from '../ui/typograpy';
 
 export const MenubarUI = () => {
   return (
-    <Menubar className='p-7'>
+    <Menubar className='p-7 sticky top-0 z-50 shadow-md'>
       <div className='flex items-center justify-between w-full'>
-        <h3 className='text-xl'>iTIL</h3>
+        <Typography type='h3' className='text-xl'>iTIL</Typography>
         <div className='flex gap-1'>
           <Button size={'icon'} variant={'ghost'}>
             <RadixIcon name='BellIcon' size={20} />
