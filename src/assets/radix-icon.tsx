@@ -1,7 +1,6 @@
-import React from 'react';
+import { cn } from '@/lib/style/utils';
 import * as icons from '@radix-ui/react-icons';
 import { IconProps } from '@radix-ui/react-icons/dist/types';
-import { cn } from '@/lib/utils';
 
 export interface RadixIconProps extends IconProps {
   name: keyof typeof icons;

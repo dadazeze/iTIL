@@ -32,6 +32,9 @@ const config = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      boxShadow: {
+        'nav-bar': '0 0px 4px 0px rgb(0 0 0 / 0.1)',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

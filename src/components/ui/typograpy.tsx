@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/style/utils';
 
 interface IProps {
   type: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'pre';
