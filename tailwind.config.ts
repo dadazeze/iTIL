@@ -21,7 +21,10 @@ const config = {
         100: "#2DE2D7",
         200: "#28D0C6", // 소셜 링크 버튼
       },
-      required: "#F2501D", // 소셜 링크 버튼
+      required: "#F2501D",
+      disabled: "#E4E4E7",
+      pointBlue: "#2596E7",
+      white: "#FFFFFF",
     },
     container: {
       center: true,
@@ -46,7 +49,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       boxShadow: {
-        'nav-bar': '0 0px 4px 0px rgb(0 0 0 / 0.1)',
+        "nav-bar": "0 0px 4px 0px rgb(0 0 0 / 0.1)",
       },
     },
   },

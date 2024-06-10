@@ -17,7 +17,7 @@ export default function PostModalUI(props: Props) {
       <DialogTrigger asChild>
         <button className="btn">Open Dialog</button>
       </DialogTrigger>
-      <DialogContent className="fixed inset-0 flex items-center justify-center bg-white z-[60] bg-level-100">
+      <DialogContent className="fixed inset-0 flex items-center justify-center z-[60] bg-white">
         <div className="w-full h-full p-4 flex flex-col">
           <DialogTitle className="text-lg font-bold mb-4">
             Full Screen Dialog
