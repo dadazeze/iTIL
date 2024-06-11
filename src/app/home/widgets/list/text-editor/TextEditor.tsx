@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactQuill, { ReactQuillProps } from "react-quill";
 import "react-quill/dist/quill.snow.css"; // Quill 에디터의 스타일 추가
+import "../../../../../app/globals.css"; //
 
 export default function TextEditor() {
   const [content, setContent] = useState<string>("");
@@ -50,7 +51,7 @@ export default function TextEditor() {
       modules={modules}
       formats={formats}
       placeholder="오늘 공부한 내용을 작성하세요. 단 한줄도 괜찮아요 :)"
-      className="h-full"
+      className="h-full custom-quill"
     />
   );
 }

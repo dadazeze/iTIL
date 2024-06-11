@@ -9,7 +9,7 @@ import {
 import { MenubarUI } from "./MenuBarUI";
 import ReactQuill from "react-quill";
 import { useState } from "react";
-import TextEditor from "@/app/_components/TextEditor";
+import TextEditor from "@/app/home/widgets/list/text-editor/TextEditor";
 
 type Props = {
   open: boolean;

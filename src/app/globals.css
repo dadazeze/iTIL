@@ -14,4 +14,12 @@
   .flex-column {
     @apply flex flex-col;
   }
+
+  .custom-quill .ql-container {
+    @apply border-none;
+  }
+
+  .custom-quill .ql-editor {
+    @apply border-none;
+  }
 }
