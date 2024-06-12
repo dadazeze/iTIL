@@ -3,8 +3,19 @@ import ReactQuill, { ReactQuillProps } from "react-quill";
 import "react-quill/dist/quill.snow.css"; // Quill 에디터의 스타일 추가
 import "../../../../../app/globals.css"; //
 
-export default function TextEditor() {
-  const [content, setContent] = useState<string>("");
+type Props = {
+  description: string;
+};
+
+export default function TextEditor(props: Props) {
+  const { description } = props;
+  const [postContent, setPostContent] = useState<string>("");
+
+  useEffect(() => {
+    if (description) {
+      setPostContent(description);
+    }
+  }, [description]);
 
   const modules = {
     toolbar: [
@@ -41,12 +52,12 @@ export default function TextEditor() {
     source,
     editor
   ) => {
-    setContent(editor.getHTML()); // 에디터의 HTML 내용으로 상태 업데이트
+    setPostContent(editor.getHTML()); // 에디터의 HTML 내용으로 상태 업데이트
   };
 
   return (
     <ReactQuill
-      value={content}
+      value={postContent}
       onChange={handleChange}
       modules={modules}
       formats={formats}
