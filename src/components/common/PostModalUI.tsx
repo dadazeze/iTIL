@@ -21,7 +21,12 @@ export default function PostModalUI(props: Props) {
   const [title, setTitle] = useState("");
   const [mainKeyword, setMainKeyword] = useState("");
 
-  const onChangeTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {};
+  const changeTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setTitle(event.target.value);
+  };
+  const changeKeywordHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setMainKeyword(event.target.value);
+  };
 
   return (
     <Dialog open={open} onOpenChange={close}>
@@ -34,6 +39,7 @@ export default function PostModalUI(props: Props) {
                 <div className="border-b-2">
                   <input
                     value={title}
+                    onChange={changeTitleHandler}
                     type="text"
                     placeholder="제목을 입력하세요"
                     className="py-2 px-1 outline-none font-normal w-full text-sm"
@@ -42,6 +48,7 @@ export default function PostModalUI(props: Props) {
                 <div className="border-b-2  mt-5">
                   <input
                     value={mainKeyword}
+                    onChange={changeKeywordHandler}
                     type="text"
                     placeholder="#대표 키워드 (i.g #Nextjs)"
                     className="py-2 px-1 outline-none font-normal w-full text-sm"
