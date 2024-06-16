@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function NewPost() {
+export default function usePostModal() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleModal = () => {

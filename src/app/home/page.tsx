@@ -12,9 +12,17 @@ import {
   DialogTrigger,
 } from "@radix-ui/react-dialog";
 import PostModalUI from "@/components/common/PostModalUI";
+import useAlertModal from "../_hooks/modal/useAlertModal";
+import AlertModalUI from "@/components/common/AlertModalUI";
+import { useEffect } from "react";
 
 export default function Page() {
   const { isOpen, toggleModal } = usePostModal();
+  const { isAlertOpen, onClose, onOpen } = useAlertModal();
+
+  useEffect(() => {
+    console.log("✅", isAlertOpen);
+  }, [isAlertOpen]);
   return (
     <div>
       <div className="pt-3 pb-3 flex gap-2">
@@ -35,7 +43,20 @@ export default function Page() {
       >
         임시 글쓰기버튼
       </button>
-      {isOpen && <PostModalUI open={isOpen} close={toggleModal} />}
+      {isOpen && (
+        <PostModalUI open={isOpen} close={toggleModal} onAlertOpen={onOpen} />
+      )}
+      {isAlertOpen && (
+        <AlertModalUI
+          alertContent={"저장 하시겠습니까?"}
+          defaultText={"취소"}
+          rightText={"확인"}
+          isAlertOpen={isAlertOpen}
+          onClose={onClose}
+          onOpen={onOpen}
+          isSingleButton={false}
+        />
+      )}
     </div>
   );
 }

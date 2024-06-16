@@ -1,3 +1,4 @@
+import { createContext, useContext, ReactNode } from "react";
 import {
   Form,
   FormControl,
@@ -5,7 +6,6 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { createContext, useContext } from "react";
 import {
   ControllerRenderProps,
   FieldValues,
@@ -13,7 +13,7 @@ import {
 } from "react-hook-form";
 
 interface IFormUIProps<T extends FieldValues> {
-  children: React.ReactNode;
+  children: ReactNode;
   form: UseFormReturn<T>;
   onSubmit: (data: T) => void;
 }
