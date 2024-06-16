@@ -18,10 +18,21 @@ const config = {
         300: "#409210",
       },
       social: {
-        100: "#2DE2D7",
-        200: "#28D0C6", // 소셜 링크 버튼
+        100: "#85EDE7",
+        200: "#76DED8", // 소셜 링크 버튼
       },
-      required: "#F2501D", // 소셜 링크 버튼
+      grayScale: {
+        100: "#F4F4F5",
+        200: "#e4e4e7",
+        300: "#d4d4d8",
+        400: "#a3a3a3",
+        500: "#71717a",
+        600: "#3F3F46",
+      },
+      required: "#F2501D",
+      disabled: "#E4E4E7",
+      pointBlue: "#2596E7",
+      white: "#FFFFFF",
     },
     container: {
       center: true,
@@ -46,7 +57,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       boxShadow: {
-        'nav-bar': '0 0px 4px 0px rgb(0 0 0 / 0.1)',
+        "nav-bar": "0 0px 4px 0px rgb(0 0 0 / 0.1)",
       },
     },
   },
