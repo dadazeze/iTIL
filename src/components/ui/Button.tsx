@@ -20,7 +20,8 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50",
         link: "text-slate-900 underline-offset-4 hover:underline dark:text-slate-50",
-        tempSave: "w-[75] border border-grayScale-400 text-grayScale-400",
+        tempSave:
+          "border border-grayScale-400 text-grayScale-400 p-0.5 h-[35px]",
         save: "w-[75] bg-social-100",
       },
       size: {
@@ -28,6 +29,7 @@ const buttonVariants = cva(
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10 rounded-full",
+        smButton: "min-w-10 p-0.5",
       },
     },
     defaultVariants: {
