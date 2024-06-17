@@ -7,11 +7,18 @@ import { FormUI } from '@/components/common/FormUI';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { useRouter } from 'next/navigation';
+import { useFormState } from 'react-dom';
+import { signup } from '../../../lib/actions';
 
 const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
 });
+
+const initialFormState = {
+  success: false,
+  message: '',
+};
 
 export default function SignInForm() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -23,6 +30,8 @@ export default function SignInForm() {
   });
   const router = useRouter();
 
+  const [formState, formAction] = useFormState(signup, initialFormState);
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
@@ -30,48 +39,20 @@ export default function SignInForm() {
   }
 
   const onToSignUpClick = () => {
-    router.push('/sign-up');
+    router.push('/auth/sign-up');
   };
 
   return (
     <div>
-      <FormUI form={form} onSubmit={onSubmit}>
+      <FormUI form={form}>
         <FormUI.Field name='email'>
           {(props) => <Input placeholder='ID:' {...props} />}
         </FormUI.Field>
         <FormUI.Field name='password'>
           {(props) => <Input placeholder='PW:' {...props} />}
         </FormUI.Field>
+        <Button type='submit'>로그인</Button>
       </FormUI>
-      {/* <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
-          <FormField
-            control={form.control}
-            name='email'
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input placeholder='ID:' {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name='password'
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input placeholder='PW:' {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type='submit'>Submit</Button>
-        </form>
-      </Form> */}
       <Button onClick={onToSignUpClick}>회원가입</Button>
     </div>
   );

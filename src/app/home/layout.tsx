@@ -1,5 +1,7 @@
 import { Header } from "@/components/common/HeaderUI";
 import BottomNavBarUI from "@/components/common/BottomNavBarUi";
+import { MenuBarUI } from "@/components/common/MenuBarUI";
+
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

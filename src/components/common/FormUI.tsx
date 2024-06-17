@@ -15,7 +15,6 @@ import {
 interface IFormUIProps<T extends FieldValues> {
   children: ReactNode;
   form: UseFormReturn<T>;
-  onSubmit: (data: T) => void;
 }
 
 interface IFormContext<T extends FieldValues> {
@@ -27,7 +26,6 @@ const FormContext = createContext<IFormContext<any>>({});
 export const FormUI = <T extends FieldValues>({
   children,
   form,
-  onSubmit,
 }: IFormUIProps<T>) => {
   return (
     <Form {...form}>
