@@ -7,10 +7,9 @@ import { FormUI } from '@/components/common/FormUI';
 import { SelectUI } from '@/components/common/SelectUI';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import { signup } from '../../../lib/actions';
-import { useFormState } from 'react-dom';
-import { useEffect } from 'react';
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -40,8 +39,6 @@ export default function SignUpForm() {
   });
   const router = useRouter();
 
-  const [formState, formAction] = useFormState(signup, initialFormState);
-
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
@@ -51,12 +48,7 @@ export default function SignUpForm() {
     router.push('/auth/sign-in');
   };
 
-  useEffect(() => {
-    if (formState.success) {
-      form.reset();
-      router.push('/home');
-    }
-  }, [formState, form, router])
+  const supabase = createClient();
 
   return (
     <div>
@@ -101,9 +93,18 @@ export default function SignUpForm() {
             />
           )}
         </FormUI.Field>
-        <Button type='submit' formAction={formAction}>
+        <Button type='submit' formAction={signup}>
           회원가입
         </Button>
+        <Button onClick={async () => {
+          await supabase.auth.signInWithOAuth({
+            provider: 'github',
+            options: {
+              redirectTo: `http://localhost:3000/`,
+            },
+          })
+          
+        }}>test</Button>
       </FormUI>
       <Button onClick={onToSignUpClick}>로그인</Button>
     </div>
