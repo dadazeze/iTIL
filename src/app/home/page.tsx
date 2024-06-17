@@ -4,25 +4,14 @@ import { CardUI } from "@/components/common/CardUI";
 import { SelectUI } from "@/components/common/SelectUI";
 import { experienceLevelItemList, roleItemList } from "./lib/constants";
 import usePostModal from "../_hooks/modal/usePostModal";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-  DialogTrigger,
-} from "@radix-ui/react-dialog";
 import PostModalUI from "@/components/common/PostModalUI";
 import useAlertModal from "../_hooks/modal/useAlertModal";
 import AlertModalUI from "@/components/common/AlertModalUI";
-import { useEffect } from "react";
 
 export default function Page() {
   const { isOpen, toggleModal } = usePostModal();
   const { isAlertOpen, onClose, onOpen } = useAlertModal();
 
-  useEffect(() => {
-    console.log("✅", isAlertOpen);
-  }, [isAlertOpen]);
   return (
     <div>
       <div className="pt-3 pb-3 flex gap-2">
