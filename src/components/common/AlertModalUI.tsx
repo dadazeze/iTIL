@@ -33,13 +33,21 @@ export default function AlertModalUI(props: Props) {
   } = props;
   return (
     <Dialog open={isAlertOpen}>
-      <DialogOverlay />
-      <DialogContent className="w-[400] h-[400] fixed inset-0 flex items-center justify-center z-[60] ">
-        <div className="w-96 h-[400] p-10 flex flex-col gap-5 border border-1 border-disabled">
-          <DialogDescription>{alertContent}</DialogDescription>
-          <div>
-            <Button variant={"default"}>{defaultText}</Button>
-            {!isSingleButton && <Button variant={"save"}>{rightText}</Button>}
+      <DialogOverlay className="fixed inset-0 bg-black bg-opacity-50 w-full h-full z-[60]" />
+      <DialogContent className="fixed inset-0 flex items-center justify-center z-[60]">
+        <div className="w-80 h-48 items-center px-10 pt-16 pb-9 flex flex-col gap-5 border border-1 border-grayScale-400 rounded-md bg-white">
+          <DialogDescription className="text-center">
+            {alertContent}
+          </DialogDescription>
+          <div className="text-center flex gap-2">
+            <Button variant={"alertDefault"} onClick={() => onClose(true)}>
+              {defaultText}
+            </Button>
+            {!isSingleButton && (
+              <Button variant={"alertRight"} onClick={() => onClose(false)}>
+                {rightText}
+              </Button>
+            )}
           </div>
         </div>
       </DialogContent>
