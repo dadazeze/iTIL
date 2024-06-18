@@ -19,7 +19,7 @@ export const Header = ({ children }: HeaderProps) => {
 // * 로고
 const LogoAlert = () => {
   return (
-    <nav className="flex justify-around sticky top-0 z-50 h-[60px] p-4 pt-2 bg-white shadow-nav-bar">
+    <nav className="flex justify-around sticky top-0 z-50 h-[60px] px-5 py-4 bg-white shadow-nav-bar">
       <div className="flex items-center justify-between w-full">
         <Typography type="h3" className="text-xl">
           iTIL
