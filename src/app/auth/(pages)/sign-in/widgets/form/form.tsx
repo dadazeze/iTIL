@@ -30,8 +30,6 @@ export default function SignInForm() {
   });
   const router = useRouter();
 
-  const [formState, formAction] = useFormState(signup, initialFormState);
-
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.

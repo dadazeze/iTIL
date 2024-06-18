@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/Input';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import { signup } from '../../../lib/actions';
+import { signInWithGitHub, signOut } from '../../lib/utils';
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -96,15 +97,8 @@ export default function SignUpForm() {
         <Button type='submit' formAction={signup}>
           회원가입
         </Button>
-        <Button onClick={async () => {
-          await supabase.auth.signInWithOAuth({
-            provider: 'github',
-            options: {
-              redirectTo: `http://localhost:3000/`,
-            },
-          })
-          
-        }}>test</Button>
+        <Button onClick={() => signInWithGitHub()}>test</Button>
+        <Button onClick={() => signOut()}>로그아웃</Button>
       </FormUI>
       <Button onClick={onToSignUpClick}>로그인</Button>
     </div>
