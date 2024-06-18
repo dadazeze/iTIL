@@ -128,9 +128,11 @@ const MessageHamburgerButton = (nickname: string) => {
   );
 };
 
+// 로고
 Header.Alert = LogoAlert;
 Header.HamburgerButton = LogoHamburgerButton;
 Header.EditProfile = EditProfile;
+//화살표
 Header.NewEditPost = PostSaveButtons;
 Header.Message = MessageHamburgerButton;
 
