@@ -13,10 +13,6 @@ import { signup } from '../../../lib/actions';
 import { signInWithGitHub, signOut } from '../../lib/utils';
 
 const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8),
-  pwdConfirm: z.string().min(8),
-  nickName: z.string().min(8),
   role: z.string().min(10),
   level: z.string().min(8),
 });
@@ -30,10 +26,6 @@ export default function SignUpForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: '',
-      password: '',
-      pwdConfirm: '',
-      nickName: '',
       role: '',
       level: '',
     },
@@ -44,10 +36,6 @@ export default function SignUpForm() {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
   }
-
-  const onToSignUpClick = () => {
-    router.push('/auth/sign-in');
-  };
 
   const supabase = createClient();
 
@@ -97,10 +85,9 @@ export default function SignUpForm() {
         <Button type='submit' formAction={signup}>
           회원가입
         </Button>
-        <Button onClick={() => signInWithGitHub()}>test</Button>
+        <Button onClick={() => signInWithGitHub()}>깃헙 로그인</Button>
         <Button onClick={() => signOut()}>로그아웃</Button>
       </FormUI>
-      <Button onClick={onToSignUpClick}>로그인</Button>
     </div>
   );
 }
