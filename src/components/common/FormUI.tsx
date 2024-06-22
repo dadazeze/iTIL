@@ -1,16 +1,16 @@
-import { createContext, useContext, ReactNode } from "react";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormMessage,
-} from "@/components/ui/form";
+} from '@/components/ui/form';
+import { ReactNode, createContext, useContext } from 'react';
 import {
   ControllerRenderProps,
   FieldValues,
   UseFormReturn,
-} from "react-hook-form";
+} from 'react-hook-form';
 
 interface IFormUIProps<T extends FieldValues> {
   children: ReactNode;
@@ -29,7 +29,7 @@ export const FormUI = <T extends FieldValues>({
 }: IFormUIProps<T>) => {
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form className='space-y-8'>
         <FormContext.Provider value={{ form }}>{children}</FormContext.Provider>
       </form>
     </Form>

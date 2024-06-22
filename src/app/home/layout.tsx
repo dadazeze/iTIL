@@ -1,8 +1,5 @@
-import { Header } from "@/components/common/HeaderUI";
-import BottomNavBarUI from "@/components/common/BottomNavBarUi";
-import { MenuBarUI } from "@/components/common/MenuBarUI";
-import { createClient } from "@/lib/supabase/server";
-import { getProfileById } from "@/services/profiles";
+import BottomNavBarUI from '@/components/common/BottomNavBarUi';
+import { Header } from '@/components/common/HeaderUI';
 
 export const dynamic = 'force-dynamic';
 
