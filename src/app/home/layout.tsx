@@ -6,7 +6,11 @@ import { getProfileById } from "@/services/profiles";
 
 export const dynamic = 'force-dynamic';
 
-export default async function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   // const supabase = createClient();
 
   // const { data, error } = await supabase.auth.getUser()
@@ -14,8 +18,8 @@ export default async function Layout({ children }: { children: React.ReactNode }
   //   throw new Error(error?.message)
   // }
 
-  const profile = await getProfileById('liketiger');
-  console.log(profile);
+  // const profile = await getProfileById();
+  // console.log(profile);
 
   return (
     <>
