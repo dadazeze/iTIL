@@ -6,6 +6,9 @@ export const enum ROLE {
   GAME = "GAME",
   MOBILE = "MOBILE",
   QA = "QA",
+  DevOps = "DEVOPS",
+  Data = "DATA",
+  Security = "SECURITY",
 }
 
 export const enum LEVEL {

@@ -1,6 +1,5 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -20,6 +19,7 @@ type Props = {
   onClose: (isDefaultButton: boolean) => void;
   onOpen: () => void;
   isSingleButton: boolean;
+  onClosePost: () => void;
 };
 export default function AlertModalUI(props: Props) {
   const {
@@ -28,7 +28,7 @@ export default function AlertModalUI(props: Props) {
     rightText,
     isAlertOpen,
     onClose,
-    onOpen,
+    onClosePost,
     isSingleButton,
   } = props;
   return (
@@ -44,7 +44,13 @@ export default function AlertModalUI(props: Props) {
               {defaultText}
             </Button>
             {!isSingleButton && (
-              <Button variant={"alertRight"} onClick={() => onClose(false)}>
+              <Button
+                variant={"alertRight"}
+                onClick={() => {
+                  onClose(false);
+                  onClosePost();
+                }}
+              >
                 {rightText}
               </Button>
             )}

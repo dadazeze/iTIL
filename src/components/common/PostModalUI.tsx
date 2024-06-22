@@ -10,7 +10,7 @@ import {
 } from "@radix-ui/react-dialog";
 import { Header } from "../common/HeaderUI";
 import ReactQuill from "react-quill";
-import TextEditor from "@/app/home/widgets/list/text-editor/TextEditor";
+import TextEditor from "@/app/home/_widgets/list/text-editor/TextEditor";
 import useAlertModal from "@/app/_hooks/modal/useAlertModal";
 import AlertModalUI from "./AlertModalUI";
 
