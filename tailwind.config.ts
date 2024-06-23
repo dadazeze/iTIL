@@ -33,6 +33,7 @@ const config = {
       disabled: "#E4E4E7",
       pointBlue: "#2596E7",
       white: "#FFFFFF",
+      black: "#000000",
     },
     container: {
       center: true,
