@@ -23,3 +23,9 @@
     @apply border-none;
   }
 }
+
+@layer utilities {
+  .custom-hover {
+    @apply hover:bg-grayScale-300 hover:cursor-pointer;
+  }
+}

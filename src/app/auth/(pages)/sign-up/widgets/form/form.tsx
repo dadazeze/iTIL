@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { FormUI } from '@/components/common/FormUI';
 import { SelectUI } from '@/components/common/SelectUI';
 import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
+import { experienceLevelItemList, roleItemList } from '@/lib/constants';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import { signup } from '../../../lib/actions';
@@ -42,32 +42,9 @@ export default function SignUpForm() {
   return (
     <div>
       <FormUI form={form}>
-        <FormUI.Field name='email'>
-          {(props) => <Input {...props} placeholder='아이디' type='email' />}
-        </FormUI.Field>
-        <FormUI.Field name='password'>
-          {(props) => (
-            <Input {...props} placeholder='비밀번호' type='password' />
-          )}
-        </FormUI.Field>
-        <FormUI.Field name='pwdConfirm'>
-          {(props) => (
-            <Input {...props} placeholder='비밀번호 확인' type='password' />
-          )}
-        </FormUI.Field>
-        <FormUI.Field name='nickName'>
-          {(props) => <Input {...props} placeholder='닉네임' />}
-        </FormUI.Field>
         <FormUI.Field name='role'>
           {(props) => (
-            <SelectUI
-              {...props}
-              placeholder='직군'
-              itemList={[
-                { label: '프론트엔드', value: 'FE' },
-                { label: '백엔드', value: 'BE' },
-              ]}
-            />
+            <SelectUI {...props} placeholder='직군' itemList={roleItemList} />
           )}
         </FormUI.Field>
         <FormUI.Field name='level'>
@@ -75,18 +52,15 @@ export default function SignUpForm() {
             <SelectUI
               {...props}
               placeholder='연차'
-              itemList={[
-                { label: '신입', value: 'entry-level' },
-                { label: '1년차', value: 'one-year' },
-              ]}
+              itemList={experienceLevelItemList}
             />
           )}
         </FormUI.Field>
         <Button type='submit' formAction={signup}>
           회원가입
         </Button>
-        <Button onClick={() => signInWithGitHub()}>깃헙 로그인</Button>
-        <Button onClick={() => signOut()}>로그아웃</Button>
+        {/* <Button onClick={() => signInWithGitHub()}>깃헙 로그인</Button>
+        <Button onClick={() => signOut()}>로그아웃</Button>  */}
       </FormUI>
     </div>
   );

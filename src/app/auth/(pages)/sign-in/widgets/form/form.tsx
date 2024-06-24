@@ -7,7 +7,7 @@ import { signInWithGitHub } from "../../../sign-up/lib/utils";
 export default function SignInForm() {
   return (
     <div>
-      <Button variant={"outline"} onClick={() => signInWithGitHub()} className="flex gap-2">
+      <Button variant={"outline"} onClick={() => signInWithGitHub()} className="flex gap-2 hover:shadow-md">
         <Image
           src="/github@2x.svg"
           alt="GitHub"

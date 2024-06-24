@@ -31,7 +31,11 @@ const SelectUI = forwardRef<any, IProps>(
           <SelectGroup>
             {label && <SelectLabel>{label}</SelectLabel>}
             {itemList.map((item) => (
-              <SelectItem key={item.value} value={item.value}>
+              <SelectItem
+                key={item.value}
+                value={item.value}
+                className='custom-hover'
+              >
                 {item.label}
               </SelectItem>
             ))}
