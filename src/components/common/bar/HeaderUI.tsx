@@ -1,7 +1,7 @@
-import { Children, ReactNode } from "react";
-import RadixIcon from "@/assets/radix-icon";
-import { Button } from "../ui/Button";
-import Typography from "../ui/typograpy";
+import RadixIcon from '@/assets/radix-icon';
+import { ReactNode } from 'react';
+import { Button } from '../../ui/Button';
+import Typography from '../../ui/typography';
 
 type HeaderProps = {
   children: ReactNode;
@@ -19,20 +19,20 @@ export const Header = ({ children }: HeaderProps) => {
 // * 로고
 const LogoAlert = () => {
   return (
-    <nav className="flex justify-around sticky top-0 z-50 h-[60px] px-5 py-4 bg-white shadow-nav-bar">
-      <div className="flex items-center justify-between w-full">
-        <Typography type="h3" className="text-xl">
+    <nav className='flex justify-around sticky top-0 z-50 h-[60px] px-5 py-4 bg-white shadow-nav-bar'>
+      <div className='flex items-center justify-between w-full'>
+        <Typography type='h3' className='text-xl'>
           iTIL
         </Typography>
-        <div className="flex gap-1">
-          <Button size={"icon"} variant={"ghost"}>
-            <RadixIcon name="BellIcon" size={20} />
+        <div className='flex gap-1'>
+          <Button size={'icon'} variant={'ghost'}>
+            <RadixIcon name='BellIcon' size={20} />
           </Button>
-          <Button size={"icon"} variant={"ghost"}>
+          <Button size={'icon'} variant={'ghost'}>
             <RadixIcon
-              name="PaperPlaneIcon"
+              name='PaperPlaneIcon'
               size={20}
-              className="-rotate-45 -translate-y-0.5"
+              className='-rotate-45 -translate-y-0.5'
             />
           </Button>
         </div>
@@ -43,13 +43,13 @@ const LogoAlert = () => {
 
 const EditProfile = () => {
   return (
-    <nav className="flex justify-around sticky top-0 z-50 h-[60px] px-5 py-4 bg-white shadow-nav-bar">
-      <div className="flex items-center justify-between w-[400]">
-        <Typography type="h3" className="text-xl">
+    <nav className='flex justify-around sticky top-0 z-50 h-[60px] px-5 py-4 bg-white shadow-nav-bar'>
+      <div className='flex items-center justify-between w-[400]'>
+        <Typography type='h3' className='text-xl'>
           프로필 편집
         </Typography>
-        <div className="flex gap-1">
-          <Button size={"icon"} variant={"ghost"}>
+        <div className='flex gap-1'>
+          <Button size={'icon'} variant={'ghost'}>
             저장
           </Button>
         </div>
@@ -60,17 +60,17 @@ const EditProfile = () => {
 
 const LogoHamburgerButton = () => {
   return (
-    <nav className="flex justify-around sticky top-0 z-50 h-[60px] px-5 py-4 bg-white shadow-nav-bar">
-      <div className="flex items-center justify-between w-full">
-        <Typography type="h3" className="text-xl">
+    <nav className='flex justify-around sticky top-0 z-50 h-[60px] px-5 py-4 bg-white shadow-nav-bar'>
+      <div className='flex items-center justify-between w-full'>
+        <Typography type='h3' className='text-xl'>
           iTIL
         </Typography>
-        <div className="flex gap-1">
-          <Button size={"icon"} variant={"ghost"}>
+        <div className='flex gap-1'>
+          <Button size={'icon'} variant={'ghost'}>
             <RadixIcon
-              name="RowsIcon"
+              name='RowsIcon'
               size={20}
-              className=" -translate-y-0.5"
+              className=' -translate-y-0.5'
             />
           </Button>
         </div>
@@ -83,22 +83,22 @@ const LogoHamburgerButton = () => {
 
 const PostSaveButtons = ({ onSave, onTempSave }: PostSaveProps) => {
   return (
-    <nav className="flex justify-around sticky top-0 z-50 h-[60px] px-5 py-4 bg-white shadow-nav-bar">
-      <div className="flex items-center justify-between w-full">
-        <Typography type="h3" className="text-xl">
-          <Button size={"icon"} variant={"ghost"}>
+    <nav className='flex justify-around sticky top-0 z-50 h-[60px] px-5 py-4 bg-white shadow-nav-bar'>
+      <div className='flex items-center justify-between w-full'>
+        <Typography type='h3' className='text-xl'>
+          <Button size={'icon'} variant={'ghost'}>
             <RadixIcon
-              name="ArrowLeftIcon"
+              name='ArrowLeftIcon'
               size={20}
-              className=" -translate-y-0.5"
+              className=' -translate-y-0.5'
             />
           </Button>
         </Typography>
-        <div className="flex gap-2">
-          <Button variant={"tempSave"} size={"smButton"} onClick={onTempSave}>
+        <div className='flex gap-2'>
+          <Button variant={'tempSave'} size={'smButton'} onClick={onTempSave}>
             임시저장
           </Button>
-          <Button variant={"save"} size={"smButton"} onClick={onSave}>
+          <Button variant={'save'} size={'smButton'} onClick={onSave}>
             저장
           </Button>
         </div>
@@ -108,20 +108,20 @@ const PostSaveButtons = ({ onSave, onTempSave }: PostSaveProps) => {
 };
 const MessageHamburgerButton = (nickname: string) => {
   return (
-    <nav className="flex justify-around sticky top-0 z-50 h-[60px] px-5 py-4 bg-white shadow-nav-bar">
-      <div className="flex items-center justify-between w-full">
-        <Typography type="h3" className="text-xl">
-          <Button size={"icon"} variant={"ghost"}>
+    <nav className='flex justify-around sticky top-0 z-50 h-[60px] px-5 py-4 bg-white shadow-nav-bar'>
+      <div className='flex items-center justify-between w-full'>
+        <Typography type='h3' className='text-xl'>
+          <Button size={'icon'} variant={'ghost'}>
             <RadixIcon
-              name="ArrowLeftIcon"
+              name='ArrowLeftIcon'
               size={20}
-              className=" -translate-y-0.5"
+              className=' -translate-y-0.5'
             />
           </Button>
         </Typography>
         <p>{nickname}</p>
-        <Button size={"icon"} variant={"ghost"}>
-          <RadixIcon name="RowsIcon" size={20} className=" -translate-y-0.5" />
+        <Button size={'icon'} variant={'ghost'}>
+          <RadixIcon name='RowsIcon' size={20} className=' -translate-y-0.5' />
         </Button>
       </div>
     </nav>

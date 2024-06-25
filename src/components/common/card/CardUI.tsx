@@ -1,13 +1,13 @@
+import RadixIcon from '@/assets/radix-icon';
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
-import { Button } from '../ui/Button';
-import Typography from '../ui/typograpy';
+import { Button } from '../../ui/Button';
+import Typography from '../../ui/typography';
 import AvatarProfileUI from './AvatarProfileUI';
-import RadixIcon from '@/assets/radix-icon';
 
 export function CardUI() {
   return (
@@ -28,8 +28,12 @@ export function CardUI() {
             sdfsdfsdsdfsdfsd sdfsdfsd sdfsdfsdsdfsdfsdsdfsdfsdsdfsdfsd
           </Typography>
           <div className='flex justify-between'>
-            <Typography type='p' className='text-xs'>좋아요 4</Typography>   
-            <Typography type='p' className='text-xs'>조회수 4</Typography>   
+            <Typography type='p' className='text-xs'>
+              좋아요 4
+            </Typography>
+            <Typography type='p' className='text-xs'>
+              조회수 4
+            </Typography>
           </div>
         </div>
       </CardContent>

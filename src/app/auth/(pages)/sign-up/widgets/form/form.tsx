@@ -3,14 +3,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { FormUI } from '@/components/common/FormUI';
-import { SelectUI } from '@/components/common/SelectUI';
+import { FormUI } from '@/components/common/form/FormUI';
 import { Button } from '@/components/ui/Button';
 import { experienceLevelItemList, roleItemList } from '@/lib/constants';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import { signup } from '../../../lib/actions';
 import { signInWithGitHub, signOut } from '../../lib/utils';
+import { SelectUI } from '@/components/common/form/SelectUI';
 
 const formSchema = z.object({
   role: z.string().min(10),

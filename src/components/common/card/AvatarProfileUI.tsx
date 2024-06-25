@@ -2,9 +2,10 @@ import RadixIcon from '@/assets/radix-icon';
 import dayjs from 'dayjs';
 import ko from 'dayjs/locale/ko';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { Button } from '../ui/Button';
-import Typography from '../ui/typograpy';
 import { AvatarUI } from './AvatarUI';
+import Typography from '@/components/ui/typography';
+import { Button } from '@/components/ui/Button';
+
 
 interface IProps {
   nickName: string;
@@ -35,9 +36,9 @@ export default function AvatarProfileUI({
             {dayjs(createdAt).fromNow()}
           </Typography>
         </div>
-      <Typography type='p' className='text-sm text-gray-300'>
-        {roleAndLevel}
-      </Typography>
+        <Typography type='p' className='text-sm text-gray-300'>
+          {roleAndLevel}
+        </Typography>
       </div>
       {isComment && (
         <Button>

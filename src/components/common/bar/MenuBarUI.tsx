@@ -1,8 +1,8 @@
 import RadixIcon from '@/assets/radix-icon';
-import { Button } from '../ui/Button';
-import Typography from '../ui/typograpy';
+import { Button } from '../../ui/Button';
+import Typography from '../../ui/typography';
 
-export const HeaderUI = () => {
+export const MenuBarUI = () => {
   return (
     <nav className='flex justify-around sticky top-0 z-50 h-[60px] p-4 pt-2 bg-white shadow-nav-bar'>
       <div className='flex items-center justify-between w-full'>

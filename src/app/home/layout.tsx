@@ -1,5 +1,6 @@
-import BottomNavBarUI from '@/components/common/BottomNavBarUi';
-import { Header } from '@/components/common/HeaderUI';
+import { AppBarUI } from '@/components/common/bar/AppBarUI';
+import BottomNavBarUI from '@/components/common/bar/BottomNavBarUi';
+import { MainAppBar } from '@/components/common/bar/MainAppBar';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,9 +22,10 @@ export default async function Layout({
   return (
     <>
       {/* <MenubarUI /> */}
-      <Header>
+      {/* <Header>
         <Header.Alert />
-      </Header>
+      </Header> */}
+      <MainAppBar />
       {children}
       <BottomNavBarUI />
     </>

@@ -1,18 +1,14 @@
-"use client";
+'use client';
 
-import { ChangeEvent, useState } from "react";
+import TextEditor from '@/app/home/_widgets/list/text-editor/TextEditor';
 import {
   Dialog,
   DialogContent,
-  DialogTitle,
-  DialogDescription,
   DialogOverlay,
-} from "@radix-ui/react-dialog";
-import { Header } from "../common/HeaderUI";
-import ReactQuill from "react-quill";
-import TextEditor from "@/app/home/_widgets/list/text-editor/TextEditor";
-import useAlertModal from "@/app/_hooks/modal/useAlertModal";
-import AlertModalUI from "./AlertModalUI";
+  DialogTitle,
+} from '@radix-ui/react-dialog';
+import { ChangeEvent, useState } from 'react';
+import { Header } from '../bar/HeaderUI';
 
 type Props = {
   open: boolean;
@@ -21,8 +17,8 @@ type Props = {
 };
 export default function PostModalUI(props: Props) {
   const { open, close, onAlertOpen } = props;
-  const [title, setTitle] = useState("");
-  const [mainKeyword, setMainKeyword] = useState("");
+  const [title, setTitle] = useState('');
+  const [mainKeyword, setMainKeyword] = useState('');
 
   // const { isAlertOpen, onClose, onOpen } = useAlertModal();
 
@@ -42,36 +38,36 @@ export default function PostModalUI(props: Props) {
     <>
       <Dialog open={open} onOpenChange={close}>
         <DialogOverlay>
-          <DialogContent className="fixed inset-0 flex items-center justify-center z-[60] bg-white">
-            <div className="w-full h-full pb-4 flex flex-col">
+          <DialogContent className='fixed inset-0 flex items-center justify-center z-[60] bg-white'>
+            <div className='w-full h-full pb-4 flex flex-col'>
               <Header>
                 <Header.NewEditPost
                   onSave={clickSaveButtonHandler}
                   onTempSave={clickSaveButtonHandler}
                 />
               </Header>
-              <div className="px-4 mt-5 h-full flex flex-col">
-                <DialogTitle className="text-lg font-bold mb-4 mt-[24]">
-                  <div className="border-b-2">
+              <div className='px-4 mt-5 h-full flex flex-col'>
+                <DialogTitle className='text-lg font-bold mb-4 mt-[24]'>
+                  <div className='border-b-2'>
                     <input
                       value={title}
                       onChange={changeTitleHandler}
-                      type="text"
-                      placeholder="제목을 입력하세요"
-                      className="py-2 px-1 outline-none font-normal w-full text-sm"
+                      type='text'
+                      placeholder='제목을 입력하세요'
+                      className='py-2 px-1 outline-none font-normal w-full text-sm'
                     />
                   </div>
-                  <div className="border-b-2  mt-5">
+                  <div className='border-b-2  mt-5'>
                     <input
                       value={mainKeyword}
                       onChange={changeKeywordHandler}
-                      type="text"
-                      placeholder="#대표 키워드 (i.g #Nextjs)"
-                      className="py-2 px-1 outline-none font-normal w-full text-sm"
+                      type='text'
+                      placeholder='#대표 키워드 (i.g #Nextjs)'
+                      className='py-2 px-1 outline-none font-normal w-full text-sm'
                     />
                   </div>
                 </DialogTitle>
-                <TextEditor description="" />
+                <TextEditor description='' />
               </div>
             </div>
           </DialogContent>
