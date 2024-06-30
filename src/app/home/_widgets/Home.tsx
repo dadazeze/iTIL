@@ -46,7 +46,7 @@ export default function Home() {
         </div>
         <ModalUI
           title="hi"
-          trigger={<Button>Modal1</Button>}
+          trigger={<Button onClick={() => console.log('hi')}>Modal1</Button>}
           confirmBtn={<Button>Confirm</Button>}
           cancelBtn={<Button>Close</Button>}
         >
