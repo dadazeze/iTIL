@@ -81,3 +81,5 @@ export const experienceLevelItemList = [
     value: LEVEL.TEN_YEAR,
   },
 ];
+
+export const voidFn = () => {};
