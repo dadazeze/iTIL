@@ -1,30 +1,34 @@
 import { Button } from "@/components/ui/Button";
 import {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogFooter,
-    DialogHeader,
-    DialogPortal,
-    DialogTitle,
-    DialogTrigger,
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import { ReactNode } from "react";
 
 interface IProps {
-    trigger: ReactNode;
-    children: ReactNode;
-    title: string;
-    confirmBtn?: ReactNode;
-    cancelBtn?: ReactNode;
+  trigger: ReactNode;
+  children: ReactNode;
+  title: string;
+  confirmBtn?: ReactNode;
+  cancelBtn?: ReactNode;
 }
 
-const ModalUI = ({ trigger, children, title, confirmBtn, cancelBtn }: IProps) => {
+const ModalUI = ({
+  trigger,
+  children,
+  title,
+  confirmBtn,
+  cancelBtn,
+}: IProps) => {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        {trigger}
-      </DialogTrigger>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogPortal>
         <DialogContent>
           <DialogHeader>
@@ -36,9 +40,7 @@ const ModalUI = ({ trigger, children, title, confirmBtn, cancelBtn }: IProps) =>
               {confirmBtn ? confirmBtn : <Button type="button">확인</Button>}
             </DialogClose>
             <DialogClose asChild>
-              <Button type="button" variant="secondary">
               {cancelBtn ? cancelBtn : <Button type="button">취소</Button>}
-              </Button>
             </DialogClose>
           </DialogFooter>
         </DialogContent>
