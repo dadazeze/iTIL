@@ -1,6 +1,6 @@
 import RadixIcon from '@/assets/radix-icon';
-import { Button } from '../ui/Button';
-import Typography from '../ui/typograpy';
+import { Button } from '../../ui/Button';
+import Typography from '../../ui/typography';
 
 export const HeaderUI = () => {
   return (

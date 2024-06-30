@@ -1,13 +1,16 @@
 "use client";
 
-import { createContext } from "react";
-import { CardUI } from "@/components/common/CardUI";
-import { SelectUI } from "@/components/common/SelectUI";
-import { experienceLevelItemList, roleItemList } from "../_lib/constants";
-import usePostModal from "@/app/_hooks/modal/usePostModal";
-import PostModalUI from "@/components/common/PostModalUI";
 import useAlertModal from "@/app/_hooks/modal/useAlertModal";
-import AlertModalUI from "@/components/common/AlertModalUI";
+import usePostModal from "@/app/_hooks/modal/usePostModal";
+
+import { CardUI } from "@/components/common/card/CardUI";
+import AlertModalUI from "@/components/common/dialog/AlertModalUI";
+import ModalUI from "@/components/common/dialog/ModalUI";
+import { SelectUI } from "@/components/common/form/SelectUI";
+import PostModalUI from "@/components/common/post/PostModalUI";
+import { Button } from "@/components/ui/Button";
+import { createContext } from "react";
+import { experienceLevelItemList, roleItemList } from "../_lib/constants";
 
 const HeaderContext = createContext<any>({}); // 토요일 설명 듣고 수정
 
@@ -41,6 +44,22 @@ export default function Header() {
             <CardUI key={item} />
           ))}
         </div>
+        <ModalUI
+          title="hi"
+          trigger={<Button>Modal1</Button>}
+          confirmBtn={<Button>Confirm</Button>}
+          cancelBtn={<Button>Close</Button>}
+        >
+          hji
+        </ModalUI>
+        <ModalUI
+          title="hi2"
+          trigger={<Button>Modal2</Button>}
+          confirmBtn={<Button>Confirm</Button>}
+          cancelBtn={<Button>Close</Button>}
+        >
+          hji2
+        </ModalUI>
         <button
           className="bg-required fixed bottom-0 right-0"
           onClick={() => toggleModal()}

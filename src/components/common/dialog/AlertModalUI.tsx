@@ -8,8 +8,8 @@ import {
   DialogOverlay,
   DialogTrigger,
 } from "@radix-ui/react-dialog";
-import { Button } from "../ui/Button";
-import { DialogHeader } from "../ui/dialog";
+import { Button } from "../../ui/Button";
+import { DialogHeader } from "../../ui/dialog";
 
 type Props = {
   alertContent: string;

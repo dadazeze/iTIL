@@ -1,5 +1,5 @@
 import RadixIcon from '@/assets/radix-icon';
-import { Button } from '../ui/Button';
+import { Button } from '../../ui/Button';
 
 export default function BottomNavBarUI() {
   return (
