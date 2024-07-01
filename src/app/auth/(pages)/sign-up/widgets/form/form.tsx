@@ -56,11 +56,13 @@ export default function SignUpForm() {
             />
           )}
         </FormUI.Field>
-        <Button type='submit' formAction={signup}>
-          회원가입
-        </Button>
-        {/* <Button onClick={() => signInWithGitHub()}>깃헙 로그인</Button>
-        <Button onClick={() => signOut()}>로그아웃</Button>  */}
+        <div className='flex justify-center'>
+          <Button type='submit' formAction={signup}>
+            회원가입
+          </Button>
+        </div>
+        <Button onClick={() => signInWithGitHub()}>깃헙 로그인</Button>
+        <Button onClick={() => signOut()}>로그아웃</Button> 
       </FormUI>
     </div>
   );
