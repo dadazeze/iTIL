@@ -4,13 +4,13 @@ import useAlertModal from "@/app/_hooks/modal/useAlertModal";
 import usePostModal from "@/app/_hooks/modal/usePostModal";
 
 import { CardUI } from "@/components/common/card/CardUI";
-import AlertModalUI from "@/components/common/dialog/AlertModalUI";
+
 import ModalUI from "@/components/common/dialog/ModalUI";
 import { SelectUI } from "@/components/common/form/SelectUI";
-import PostModalUI from "@/components/common/post/PostModalUI";
 import { Button } from "@/components/ui/Button";
 import { createContext } from "react";
 import { experienceLevelItemList, roleItemList } from "../_lib/constants";
+import PostModalUI from "@/components/common/dialog/PostModalUI";
 
 const HeaderContext = createContext<any>({}); // 토요일 설명 듣고 수정
 
@@ -60,27 +60,17 @@ export default function Header() {
         >
           hji2
         </ModalUI>
-        <button
+        <PostModalUI />
+
+        {/* <button
           className="bg-required fixed bottom-0 right-0"
           onClick={() => toggleModal()}
         >
           k 임시 글쓰기버튼
-        </button>
-        {isOpen && (
+        </button> */}
+        {/* {isOpen && (
           <PostModalUI open={isOpen} close={toggleModal} onAlertOpen={onOpen} />
-        )}
-        {isAlertOpen && (
-          <AlertModalUI
-            alertContent={"저장 하시겠습니까?"}
-            defaultText={"취소"}
-            rightText={"확인"}
-            isSingleButton={false}
-            isAlertOpen={isAlertOpen}
-            onClose={onClose}
-            onOpen={onOpen}
-            onClosePost={toggleModal}
-          />
-        )}
+        )} */}
       </HeaderContext.Provider>
     </div>
   );
