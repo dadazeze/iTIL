@@ -1,5 +1,5 @@
 import RadixIcon from '@/assets/radix-icon';
-import BottomNavBarUI from '@/components/common/bar/BottomNavBarUI';
+import BottomNavBarUI from '@/components/common/bar/BottomNavBarUi';
 import { MenuBarUI } from '@/components/common/bar/MenuBarUI';
 import { Button } from '@/components/ui/Button';
 import Typography from '@/components/ui/typography';
@@ -22,6 +22,14 @@ export default async function Layout({
   ) {
     redirect('/auth/sign-up');
   }
+
+  // develop -> feat1
+
+  // develop + feat2 -> feat1hu -> commit
+  // develop -> feat2
+
+  // main -> develop -> feat1 / 2
+  // main -> develop -> feat 1 
 
   return (
     <>
