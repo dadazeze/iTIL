@@ -8,7 +8,6 @@ export const getProfileById = async (): Promise<IUserProfileView[] | null> => {
     data: { user },
     error: authError,
   } = await supabase.auth.getUser();
-
   const { data, error } = await supabase
     .from('profiles')
     .select('*')
