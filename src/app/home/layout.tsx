@@ -14,22 +14,10 @@ export default async function Layout({
   children: React.ReactNode;
 }) {
   const profile = await getProfileById();
-  console.log(profile);
 
-  if (
-    (profile && profile?.at(0).role === null) ||
-    profile?.at(0).level === null
-  ) {
+  if (profile && profile?.at(0).role === null || profile?.at(0).level === null) {
     redirect('/auth/sign-up');
   }
-
-  // develop -> feat1
-
-  // develop + feat2 -> feat1hu -> commit
-  // develop -> feat2
-
-  // main -> develop -> feat1 / 2
-  // main -> develop -> feat 1 
 
   return (
     <>
