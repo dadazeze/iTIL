@@ -11,7 +11,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ChangeEvent, ReactNode, useState } from "react";
+import { ChangeEvent, ReactNode, useEffect, useState } from "react";
 import ModalUI from "./ModalUI";
 import { PostAppBarUI } from "../bar/PostAppBartUI";
 import RadixIcon from "@/assets/radix-icon";
@@ -20,6 +20,7 @@ import TextEditor from "@/app/home/_widgets/list/text-editor/TextEditor";
 export default function PostModalUI() {
   const [title, setTitle] = useState("");
   const [mainKeyword, setMainKeyword] = useState("");
+  const [contents, setContents] = useState("");
 
   const changeTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
@@ -28,10 +29,14 @@ export default function PostModalUI() {
     setMainKeyword(event.target.value);
   };
 
+  const getContents = (text: string) => {
+    setContents(text);
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>
+        <Button variant={"post"} size={"icon"}>
           <RadixIcon name="Pencil1Icon" size={20} />
         </Button>
       </DialogTrigger>
@@ -60,7 +65,7 @@ export default function PostModalUI() {
                   />
                 </div>
               </DialogTitle>
-              <TextEditor description="" />
+              <TextEditor description={contents} onGet={getContents} />
             </div>
           </div>
         </DialogContent>

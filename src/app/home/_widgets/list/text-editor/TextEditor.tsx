@@ -5,10 +5,11 @@ import "../../../../../app/globals.css"; //
 
 type Props = {
   description: string;
+  onGet: (text: string) => void;
 };
 
 export default function TextEditor(props: Props) {
-  const { description } = props;
+  const { description, onGet } = props;
   const [postContent, setPostContent] = useState<string>("");
 
   useEffect(() => {
@@ -16,6 +17,10 @@ export default function TextEditor(props: Props) {
       setPostContent(description);
     }
   }, [description]);
+
+  useEffect(() => {
+    onGet(postContent);
+  }, [postContent]);
 
   const modules = {
     toolbar: [

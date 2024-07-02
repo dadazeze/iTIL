@@ -25,13 +25,14 @@ const buttonVariants = cva(
         save: "w-[75] bg-social-100",
         alertDefault: "w-24 h-9 border border-grayScale-400", //알럿 팝업 왼쪽 취소버튼
         alertRight: "w-24 h-9 bg-social-100", // 알럿 팝업 오른쪽 확인 버튼(api 통신 버튼)
+        post: "w-24 h-24 bg-social-100 p-9",
         // ---- end of buttons ----
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10 rounded-full",
+        icon: "h-10 w-10 rounded-full p-0",
         smButton: "min-w-10 p-1.5",
       },
     },
