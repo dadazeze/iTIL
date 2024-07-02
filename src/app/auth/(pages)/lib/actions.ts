@@ -1,10 +1,9 @@
 'use server';
 
 import { createClient } from '@/lib/supabase/server';
-import { log } from 'console';
+import { updateProfileById } from '@/services/profiles';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { NextResponse } from 'next/server';
 
 export async function login(formData: FormData) {
   const supabase = createClient();
@@ -25,3 +24,15 @@ export async function login(formData: FormData) {
   revalidatePath('/', 'layout');
   redirect('/');
 }
+
+export const updateProfile = async (formData: FormData) => {
+  const data = {
+    role: formData.get('role') as string,
+    level: formData.get('level') as string,
+  };
+  console.log(formData);
+
+  updateProfileById(data);
+
+  redirect('/home');
+};

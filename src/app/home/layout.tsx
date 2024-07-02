@@ -3,8 +3,8 @@ import BottomNavBarUI from '@/components/common/bar/BottomNavBarUI';
 import { MenuBarUI } from '@/components/common/bar/MenuBarUI';
 import { Button } from '@/components/ui/Button';
 import Typography from '@/components/ui/typography';
-import { createClient } from '@/lib/supabase/server';
 import { getProfileById } from '@/services/profiles';
+import { redirect } from 'next/navigation';
 
 export const dynamic = "force-dynamic";
 
@@ -13,16 +13,11 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = createClient();
+  const profile = await getProfileById();
 
-  const { data, error } = await supabase.auth.getUser();
-  if (error || !data?.user) {
-    throw new Error(error?.message);
+  if (profile && profile?.at(0).role === null || profile?.at(0).level === null) {
+    redirect('/auth/sign-up');
   }
-  console.log(data);
-
-  // const profile = await getProfileById();
-  // console.log(profile);
 
   return (
     <>

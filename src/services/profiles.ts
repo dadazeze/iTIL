@@ -7,12 +7,10 @@ export const getProfileById = async () => {
     data: { user },
     error: authError,
   } = await supabase.auth.getUser();
-  console.log(user);
   const { data, error } = await supabase
     .from('profiles')
     .select('*')
-    .eq('username', user?.id)
-    .single();
+    .eq('id', user?.id);
 
   const newError = authError ?? error;
 
@@ -22,3 +20,20 @@ export const getProfileById = async () => {
 
   return data;
 };
+
+export const updateProfileById = async (data: any) => {
+  const {
+    data: { user },
+    error: authError,
+  } = await supabase.auth.getUser();
+  const { error } = await supabase
+    .from('profiles')
+    .update(data)
+    .eq('id', user?.id);
+
+  const newError = authError ?? error;
+
+  if (newError) {
+    throw new Error(newError.message);
+  }
+}

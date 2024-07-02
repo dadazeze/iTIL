@@ -8,9 +8,9 @@ import { Button } from '@/components/ui/Button';
 import { experienceLevelItemList, roleItemList } from '@/lib/constants';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
-import { signup } from '../../../lib/actions';
 import { signInWithGitHub, signOut } from '../../lib/utils';
 import { SelectUI } from '@/components/common/form/SelectUI';
+import { updateProfile } from '../../../lib/actions';
 
 const formSchema = z.object({
   role: z.string().min(10),
@@ -57,12 +57,10 @@ export default function SignUpForm() {
           )}
         </FormUI.Field>
         <div className='flex justify-center'>
-          <Button type='submit' formAction={signup}>
+          <Button type='submit' formAction={updateProfile}>
             회원가입
           </Button>
         </div>
-        <Button onClick={() => signInWithGitHub()}>깃헙 로그인</Button>
-        <Button onClick={() => signOut()}>로그아웃</Button> 
       </FormUI>
     </div>
   );

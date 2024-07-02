@@ -37,23 +37,16 @@ export function CardUI() {
           </div>
         </div>
       </CardContent>
-      <CardFooter className='flex justify-between pb-1 pt-1 pl-5 pr-5'>
-        <div className='flex gap-3'>
-          <Button size={'icon'} variant={'ghost'}>
-            <RadixIcon name='HeartIcon' size={20} />
-          </Button>
-          <Button size={'icon'} variant={'ghost'}>
-            <RadixIcon name='ChatBubbleIcon' size={20} />
-          </Button>
-        </div>
-        <div className='flex gap-3'>
-          <Button size={'icon'} variant={'ghost'}>
-            <RadixIcon name='StackIcon' size={20} />
-          </Button>
-          <Button size={'icon'} variant={'ghost'}>
-            <RadixIcon name='BookmarkIcon' size={20} />
-          </Button>
-        </div>
+      <CardFooter className='flex justify-around pb-1 pt-1'>
+        <Button size={'icon'} variant={'ghost'}>
+          <RadixIcon name='HeartIcon' size={20} />
+        </Button>
+        <Button size={'icon'} variant={'ghost'}>
+          <RadixIcon name='ChatBubbleIcon' size={20} />
+        </Button>
+        <Button size={'icon'} variant={'ghost'}>
+          <RadixIcon name='BookmarkIcon' size={20} />
+        </Button>
       </CardFooter>
     </Card>
   );
