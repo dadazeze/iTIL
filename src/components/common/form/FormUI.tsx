@@ -41,7 +41,7 @@ interface IFieldsProps {
   name: string;
 }
 
-const Fields = ({ children, name }: IFieldsProps) => {
+const Fields: React.FC<IFieldsProps> = ({ children, name }: IFieldsProps) => {
   const { form } = useContext(FormContext);
   return (
     <FormField

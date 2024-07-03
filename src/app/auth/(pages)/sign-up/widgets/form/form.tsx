@@ -1,21 +1,12 @@
 'use client';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 
+import { SignUpParams } from '@/app/auth/types/parameter';
 import { FormUI } from '@/components/common/form/FormUI';
+import { SelectUI } from '@/components/common/form/SelectUI';
 import { Button } from '@/components/ui/Button';
 import { experienceLevelItemList, roleItemList } from '@/lib/constants';
-import { createClient } from '@/lib/supabase/client';
-import { useRouter } from 'next/navigation';
-import { signInWithGitHub, signOut } from '../../lib/utils';
-import { SelectUI } from '@/components/common/form/SelectUI';
 import { updateProfile } from '../../../lib/actions';
-
-const formSchema = z.object({
-  role: z.string().min(10),
-  level: z.string().min(8),
-});
 
 const initialFormState = {
   success: false,
@@ -23,28 +14,19 @@ const initialFormState = {
 };
 
 export default function SignUpForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<SignUpParams>({
     defaultValues: {
       role: '',
       level: '',
     },
   });
-  const router = useRouter();
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-  }
-
-  const supabase = createClient();
 
   return (
     <div>
       <FormUI form={form}>
         <FormUI.Field name='role'>
           {(props) => (
-            <SelectUI {...props} placeholder='직군' itemList={roleItemList} />
+            <SelectUI {...props} placeholder='직군' itemList={roleItemList} onChange={props.onChange} />
           )}
         </FormUI.Field>
         <FormUI.Field name='level'>
@@ -60,6 +42,7 @@ export default function SignUpForm() {
           <Button type='submit' formAction={updateProfile}>
             회원가입
           </Button>
+          <p onClick={() => console.log(form.getValues())}>test</p>
         </div>
       </FormUI>
     </div>
