@@ -61,16 +61,6 @@ export default function Home() {
           hji2
         </ModalUI>
         <PostModalUI />
-
-        {/* <button
-          className="bg-required fixed bottom-0 right-0"
-          onClick={() => toggleModal()}
-        >
-          k 임시 글쓰기버튼
-        </button> */}
-        {/* {isOpen && (
-          <PostModalUI open={isOpen} close={toggleModal} onAlertOpen={onOpen} />
-        )} */}
       </HeaderContext.Provider>
     </div>
   );
