@@ -1,5 +1,5 @@
-import Header from "./_widgets/Header";
+import Home from "./_widgets/Home";
 
 export default function Page() {
-  return <Header />;
+  return <Home />;
 }

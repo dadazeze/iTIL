@@ -14,7 +14,7 @@ import PostModalUI from "@/components/common/dialog/PostModalUI";
 
 const HeaderContext = createContext<any>({}); // 토요일 설명 듣고 수정
 
-export default function Header() {
+export default function Home() {
   const { isOpen, toggleModal } = usePostModal();
   const { isAlertOpen, onClose, onOpen } = useAlertModal();
   const defaultText = "취소";
