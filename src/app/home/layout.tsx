@@ -14,8 +14,12 @@ export default async function Layout({
   children: React.ReactNode;
 }) {
   const profile = await getProfileById();
+  console.log(profile);
 
-  if (profile && profile?.at(0).role === null || profile?.at(0).level === null) {
+  if (
+    (profile && profile?.at(0).role === null) ||
+    profile?.at(0).level === null
+  ) {
     redirect('/auth/sign-up');
   }
 

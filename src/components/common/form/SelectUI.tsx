@@ -22,7 +22,7 @@ const SelectUI = forwardRef<any, IProps>(
     return (
       <Select {...props} onValueChange={onChange}>
         <SelectTrigger
-          // ref={ref}
+          ref={ref}
           className='w-[180px] data-[placeholder]:text-gray-300'
         >
           <SelectValue placeholder={placeholder} />
