@@ -15,6 +15,7 @@ import {
 interface IFormUIProps<T extends FieldValues> {
   children: ReactNode;
   form: UseFormReturn<T>;
+  action: (payload: FormData) => void;
 }
 
 interface IFormContext<T extends FieldValues> {
@@ -26,10 +27,11 @@ const FormContext = createContext<IFormContext<any>>({});
 export const FormUI = <T extends FieldValues>({
   children,
   form,
+  action
 }: IFormUIProps<T>) => {
   return (
     <Form {...form}>
-      <form className='space-y-8'>
+      <form className='space-y-8' action={action}>
         <FormContext.Provider value={{ form }}>{children}</FormContext.Provider>
       </form>
     </Form>

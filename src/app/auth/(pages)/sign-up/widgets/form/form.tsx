@@ -1,17 +1,14 @@
 'use client';
-import { useForm } from 'react-hook-form';
 
+import { TFormActionState } from '@/app/auth/types/domain';
 import { SignUpParams } from '@/app/auth/types/parameter';
 import { FormUI } from '@/components/common/form/FormUI';
-import { SelectUI } from '@/components/common/form/SelectUI';
-import { Button } from '@/components/ui/Button';
-import { experienceLevelItemList, roleItemList } from '@/lib/constants';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useFormState } from 'react-dom';
+import { useForm } from 'react-hook-form';
 import { updateProfile } from '../../../lib/actions';
-
-const initialFormState = {
-  success: false,
-  message: '',
-};
+import FormContent from './form-content';
 
 export default function SignUpForm() {
   const form = useForm<SignUpParams>({
@@ -21,29 +18,27 @@ export default function SignUpForm() {
     },
   });
 
+  const [state, formAction] = useFormState<TFormActionState, FormData>(
+    updateProfile,
+    null
+  );
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!state) return;
+    if (state.status === 'error') {
+      console.log('error');
+    }
+    if (state.status === 'success') {
+      router.push('/home');
+    }
+  });
+
   return (
     <div>
-      <FormUI form={form}>
-        <FormUI.Field name='role'>
-          {(props) => (
-            <SelectUI {...props} placeholder='직군' itemList={roleItemList} onChange={props.onChange} />
-          )}
-        </FormUI.Field>
-        <FormUI.Field name='level'>
-          {(props) => (
-            <SelectUI
-              {...props}
-              placeholder='연차'
-              itemList={experienceLevelItemList}
-            />
-          )}
-        </FormUI.Field>
-        <div className='flex justify-center'>
-          <Button type='submit' formAction={updateProfile}>
-            회원가입
-          </Button>
-          <p onClick={() => console.log(form.getValues())}>test</p>
-        </div>
+      <FormUI form={form} action={formAction}>
+        <FormContent />
       </FormUI>
     </div>
   );
