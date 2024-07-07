@@ -11,7 +11,7 @@ export default async function Layout({
   return (
     <>
       <MainAppBar />
-      {children}
+      <div className="mb-16">{children}</div>
       <BottomNavBarUI />
     </>
   );
