@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import useAlertModal from "@/app/_hooks/modal/useAlertModal";
-import usePostModal from "@/app/_hooks/modal/usePostModal";
+import useAlertModal from '@/app/_hooks/modal/useAlertModal';
+import usePostModal from '@/app/_hooks/modal/usePostModal';
 
 import { CardUI } from "@/components/common/card/CardUI";
 
 import ModalUI from "@/components/common/dialog/ModalUI";
 import { SelectUI } from "@/components/common/form/SelectUI";
 import { Button } from "@/components/ui/Button";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { experienceLevelItemList, roleItemList } from "../_lib/constants";
 import PostModalUI from "@/components/common/dialog/PostModalUI";
 
@@ -17,8 +17,9 @@ const HeaderContext = createContext<any>({}); // 토요일 설명 듣고 수정
 export default function Home() {
   const { isOpen, toggleModal } = usePostModal();
   const { isAlertOpen, onClose, onOpen } = useAlertModal();
-  const defaultText = "취소";
+  const defaultText = '취소';
   const isSingleButton = false;
+  const [role, setRole] = useState()
 
   return (
     <div>
@@ -32,20 +33,26 @@ export default function Home() {
           isSingleButton,
         }}
       >
-        <div className="pt-3 pb-3 flex gap-2">
-          <SelectUI itemList={roleItemList} placeholder="직군을 선택하세요" />
+        <div className='pt-3 pb-3 flex gap-2'>
+          <SelectUI
+            itemList={roleItemList}
+            placeholder='직군을 선택하세요'
+            onChange={() => console.log('hi')}
+            value='FE'
+          />
           <SelectUI
             itemList={experienceLevelItemList}
-            placeholder="경력을 선택하세요"
+            placeholder='경력을 선택하세요'
+            onChange={() => console.log('hi')}
           />
         </div>
-        <div className="flex flex-col gap-2 bg-gray-100">
+        <div className='flex flex-col gap-2 bg-gray-100'>
           {[1, 2, 3, 4, 5, 6].map((item) => (
             <CardUI key={item} />
           ))}
         </div>
         <ModalUI
-          title="hi"
+          title='hi'
           trigger={<Button onClick={() => console.log('hi')}>Modal1</Button>}
           confirmBtn={<Button>Confirm</Button>}
           cancelBtn={<Button>Close</Button>}
@@ -53,7 +60,7 @@ export default function Home() {
           hji
         </ModalUI>
         <ModalUI
-          title="hi2"
+          title='hi2'
           trigger={<Button>Modal2</Button>}
           confirmBtn={<Button>Confirm</Button>}
           cancelBtn={<Button>Close</Button>}

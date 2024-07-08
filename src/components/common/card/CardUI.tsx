@@ -8,6 +8,7 @@ import {
 import { Button } from '../../ui/Button';
 import Typography from '../../ui/typography';
 import AvatarProfileUI from './AvatarProfileUI';
+import Link from 'next/link';
 
 export function CardUI() {
   return (
@@ -23,11 +24,17 @@ export function CardUI() {
       <CardContent className='pb-0'>
         <div className='flex flex-col'>
           <Typography type='h4'>Next 1j2k 24.52j4 2</Typography>
-          <Typography type='pre' className='pt-4 pb-5'>
-            sdfsdfsdsdfsdfsdsdfsdfsd sdfsdfsdsdfsdfsd sdfsdfsdsdfsdfsdsdfsdfsd
-            sdfsdfsdsdfsdfsd sdfsdfsd sdfsdfsdsdfsdfsdsdfsdfsdsdfsdfsd
-          </Typography>
-          <div className='flex justify-between'>
+          <div className='flex items-end'>
+            <Typography
+              type='pre'
+              className='pt-4 pb-5 elipsis-3 h-[100px] w-[85%]'
+            >
+              sdfsdfsdsdfsdfsdsdfsdfsd sdfsdfsdsdfsdfsd sdfsdfsdsdfsdfsdsdfsdfsd
+              sdfsdfsdsdfsdfsd sdfsdfsd sdfsdfsdsdfsdfsdsdfsdfsdsdfsdfsd
+            </Typography>
+            <Link href={'/'} className='underline'>더보기</Link>
+          </div>
+          <div className='flex justify-between p-3'>
             <Typography type='p' className='text-xs'>
               좋아요 4
             </Typography>
@@ -37,7 +44,7 @@ export function CardUI() {
           </div>
         </div>
       </CardContent>
-      <CardFooter className='flex justify-around pb-1 pt-1'>
+      <CardFooter className='flex justify-around pb-1 pt-1 bg-grayScale-100 mt-2'>
         <Button size={'icon'} variant={'ghost'}>
           <RadixIcon name='HeartIcon' size={20} />
         </Button>

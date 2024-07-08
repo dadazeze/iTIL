@@ -33,7 +33,7 @@ export default function SignUpForm() {
     if (state.status === 'success') {
       router.push('/home');
     }
-  });
+  }, [state, router]);
 
   return (
     <div>
