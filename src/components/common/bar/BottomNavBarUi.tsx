@@ -5,6 +5,7 @@
 import RadixIcon from "@/assets/radix-icon";
 import { Button } from "../../ui/Button";
 import { useRouter } from "next/navigation";
+import PostModalUI from "../dialog/PostModalUI";
 
 export default function BottomNavBarUI() {
   const router = useRouter();
@@ -19,9 +20,7 @@ export default function BottomNavBarUI() {
         >
           <RadixIcon name="HomeIcon" size={30} />
         </Button>
-        <Button size={"icon"} variant={"ghost"}>
-          <RadixIcon name="PlusCircledIcon" size={30} />
-        </Button>
+        <PostModalUI />
         <Button
           size={"icon"}
           variant={"ghost"}

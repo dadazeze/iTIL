@@ -60,7 +60,7 @@ export default function Home() {
         >
           hji2
         </ModalUI>
-        <PostModalUI />
+        {/* <PostModalUI /> */}
       </HeaderContext.Provider>
     </div>
   );

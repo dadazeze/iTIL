@@ -3,16 +3,12 @@
 import { Button } from "@/components/ui/Button";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
-  DialogFooter,
-  DialogHeader,
   DialogPortal,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ChangeEvent, ReactNode, useEffect, useState } from "react";
-import ModalUI from "./ModalUI";
+import { ChangeEvent, useState } from "react";
 import { PostAppBarUI } from "../bar/PostAppBartUI";
 import RadixIcon from "@/assets/radix-icon";
 import TextEditor from "@/app/home/_widgets/list/text-editor/TextEditor";
@@ -36,8 +32,8 @@ export default function PostModalUI() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant={"post"} size={"icon"}>
-          <RadixIcon name="Pencil1Icon" size={20} />
+        <Button size={"icon"} variant={"ghost"}>
+          <RadixIcon name="PlusCircledIcon" size={30} />
         </Button>
       </DialogTrigger>
       <DialogPortal>
