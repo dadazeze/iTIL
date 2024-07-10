@@ -1,5 +1,7 @@
-import Home from "./_widgets/Home";
+import { getProfileById } from '@/services/profiles';
+import Header from './_widgets/Header';
 
-export default function Page() {
-  return <Home />;
+export default async function Page() {
+  const profile = await getProfileById();
+  return <Header profile={profile?.[0] ?? null} />;
 }

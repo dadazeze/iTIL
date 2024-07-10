@@ -3,23 +3,29 @@
 import useAlertModal from '@/app/_hooks/modal/useAlertModal';
 import usePostModal from '@/app/_hooks/modal/usePostModal';
 
-import { CardUI } from "@/components/common/card/CardUI";
+import { CardUI } from '@/components/common/card/CardUI';
 
-import ModalUI from "@/components/common/dialog/ModalUI";
-import { SelectUI } from "@/components/common/form/SelectUI";
-import { Button } from "@/components/ui/Button";
-import { createContext, useState } from "react";
-import { experienceLevelItemList, roleItemList } from "../_lib/constants";
-import PostModalUI from "@/components/common/dialog/PostModalUI";
+import ModalUI from '@/components/common/dialog/ModalUI';
+import PostModalUI from '@/components/common/dialog/PostModalUI';
+import { SelectUI } from '@/components/common/form/SelectUI';
+import { Button } from '@/components/ui/Button';
+import { createContext, useState } from 'react';
+import { experienceLevelItemList, roleItemList } from '../_lib/constants';
+import { IUserProfileView } from '../types/view';
 
 const HeaderContext = createContext<any>({}); // 토요일 설명 듣고 수정
 
-export default function Home() {
+interface IProps {
+  profile: IUserProfileView | null;
+}
+
+export default function Header({profile}: IProps) {
   const { isOpen, toggleModal } = usePostModal();
   const { isAlertOpen, onClose, onOpen } = useAlertModal();
   const defaultText = '취소';
   const isSingleButton = false;
-  const [role, setRole] = useState()
+  const [role, setRole] = useState(profile?.role ?? '');
+  const [level, setLevel] = useState(profile?.level ?? '');
 
   return (
     <div>
@@ -37,13 +43,14 @@ export default function Home() {
           <SelectUI
             itemList={roleItemList}
             placeholder='직군을 선택하세요'
-            onChange={() => console.log('hi')}
-            value='FE'
+            onChange={(value) => setRole(value)}
+            value={role}
           />
           <SelectUI
             itemList={experienceLevelItemList}
             placeholder='경력을 선택하세요'
-            onChange={() => console.log('hi')}
+            onChange={(value) => setLevel(value)}
+            value={level}
           />
         </div>
         <div className='flex flex-col gap-2 bg-gray-100'>

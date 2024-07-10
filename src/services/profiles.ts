@@ -1,12 +1,14 @@
+import { IUserProfileView } from '@/app/home/types/view';
 import { createClient } from '@/lib/supabase/server';
 
 const supabase = createClient();
 
-export const getProfileById = async () => {
+export const getProfileById = async (): Promise<IUserProfileView[] | null> => {
   const {
     data: { user },
     error: authError,
   } = await supabase.auth.getUser();
+
   const { data, error } = await supabase
     .from('profiles')
     .select('*')
@@ -36,4 +38,4 @@ export const updateProfileById = async (data: any) => {
   if (newError) {
     throw new Error(newError.message);
   }
-}
+};
