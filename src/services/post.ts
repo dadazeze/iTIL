@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 const supabase = createClient();
 
 export const getPosts = async (filter?: IHomePostFilterParams) => {
-  const { data, error } = await supabase.from('posts').select('*');
+  const { data, error } = await supabase.from('post').select('*, profiles(*)');
   if (error) {
     throw new Error(error.message);
   }

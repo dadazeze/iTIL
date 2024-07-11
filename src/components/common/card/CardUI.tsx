@@ -5,41 +5,47 @@ import {
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
+import Link from 'next/link';
 import { Button } from '../../ui/Button';
 import Typography from '../../ui/typography';
 import AvatarProfileUI from './AvatarProfileUI';
-import Link from 'next/link';
+import { IPostView } from '@/app/home/types/view';
 
-export function CardUI() {
+interface IProps {
+  item: IPostView;
+}
+
+export function CardUI({ item }: IProps) {
   return (
     <Card className='w-full rounded-none'>
       <CardHeader>
         <AvatarProfileUI
-          src='https://github.com/shadcn.png'
-          nickName='zeze'
-          roleAndLevel='프론트 / 1년차'
-          createdAt={'2022.01.01'}
+          src={item.profiles.avatar_url}
+          nickName={item.profiles.username}
+          roleAndLevel={`${item.profiles.role} / ${item.profiles.level}`}
+          createdAt={item.created_at}
         />
       </CardHeader>
       <CardContent className='pb-0'>
         <div className='flex flex-col'>
-          <Typography type='h4'>Next 1j2k 24.52j4 2</Typography>
+          <Typography type='h4'>{item.title}</Typography>
           <div className='flex items-end'>
             <Typography
               type='pre'
               className='pt-4 pb-5 elipsis-3 h-[100px] w-[85%]'
             >
-              sdfsdfsdsdfsdfsdsdfsdfsd sdfsdfsdsdfsdfsd sdfsdfsdsdfsdfsdsdfsdfsd
-              sdfsdfsdsdfsdfsd sdfsdfsd sdfsdfsdsdfsdfsdsdfsdfsdsdfsdfsd
+              {item.description}
             </Typography>
-            <Link href={'/'} className='underline'>더보기</Link>
+            <Link href={'/'} className='underline'>
+              더보기
+            </Link>
           </div>
           <div className='flex justify-between p-3'>
             <Typography type='p' className='text-xs'>
               좋아요 4
             </Typography>
             <Typography type='p' className='text-xs'>
-              조회수 4
+              {item.count}
             </Typography>
           </div>
         </div>

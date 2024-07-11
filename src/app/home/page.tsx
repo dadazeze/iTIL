@@ -1,7 +1,15 @@
+import { getPosts } from '@/services/post';
 import { getProfileById } from '@/services/profiles';
-import Header from './_widgets/Header';
+import Filter from './_widgets/Filter';
+import { Post } from './_widgets/Post';
 
 export default async function Page() {
   const profile = await getProfileById();
-  return <Header profile={profile?.[0] ?? null} />;
+  const postList = await getPosts();
+  return (
+    <main>
+      <Filter profile={profile?.at(0) ?? null} />
+      <Post postList={postList} />
+    </main>
+  );
 }
