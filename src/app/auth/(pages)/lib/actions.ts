@@ -1,27 +1,28 @@
 'use server';
 
-import { createClient } from '@/lib/supabase/server';
-import { log } from 'console';
-import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
-import { NextResponse } from 'next/server';
+import { updateProfileById } from '@/services/profiles';
+import { TFormActionState } from '../../types/domain';
 
-export async function login(formData: FormData) {
-  const supabase = createClient();
+export const updateProfile = async (
+  prevState: TFormActionState | null,
+  data: FormData
+): Promise<TFormActionState> => {
+  try {
+    const newData = {
+      role: data.get('role') as string,
+      level: data.get('level') as string,
+    };
 
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const data = {
-    email: formData.get('email') as string,
-    password: formData.get('password') as string,
-  };
+    updateProfileById(newData);
 
-  const { error } = await supabase.auth.signInWithPassword(data);
-
-  if (error) {
-    redirect('/error');
+    return {
+      status: 'success',
+      message: 'Profile updated successfully',
+    };
+  } catch (e) {
+    return {
+      status: 'error',
+      message: 'Profile update failed',
+    };
   }
-
-  revalidatePath('/', 'layout');
-  redirect('/');
-}
+};

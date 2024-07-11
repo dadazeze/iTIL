@@ -14,16 +14,16 @@ interface IProps extends React.ComponentPropsWithoutRef<typeof Select> {
   itemList: ISelectItemListType[];
   label?: string;
   placeholder: string;
+  onChange: (value: string) => void;
 }
 
 const SelectUI = forwardRef<any, IProps>(
-  ({ placeholder, label, itemList, ...props }, ref) => {
+  ({ placeholder, label, itemList, onChange, ...props }, ref) => {
     return (
-      <Select>
+      <Select {...props} onValueChange={onChange}>
         <SelectTrigger
           ref={ref}
           className='w-[180px] data-[placeholder]:text-gray-300'
-          {...props}
         >
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
