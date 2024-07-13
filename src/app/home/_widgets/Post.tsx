@@ -1,6 +1,5 @@
-import React from "react";
-import { IPostView } from "../types/view";
-import { CardUI } from "@/components/common/card/CardUI";
+import { CardUI } from '@/components/common/card/CardUI';
+import { IPostView } from '../types/view';
 
 interface IProps {
   postList: IPostView[];
@@ -8,7 +7,7 @@ interface IProps {
 
 export const Post = ({ postList }: IProps) => {
   return (
-    <section className="flex flex-col gap-2 bg-gray-100">
+    <section className='flex flex-col gap-1 bg-grayScale-100 pt-1 pb-1'>
       {postList.map((item) => (
         <CardUI key={item.id} item={item} />
       ))}

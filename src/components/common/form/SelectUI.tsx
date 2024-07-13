@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { ISelectItemListType } from '@/types';
+import { cva } from 'class-variance-authority';
 import React, { forwardRef } from 'react';
 
 interface IProps extends React.ComponentPropsWithoutRef<typeof Select> {
@@ -17,13 +18,25 @@ interface IProps extends React.ComponentPropsWithoutRef<typeof Select> {
   onChange: (value: string) => void;
 }
 
+const selectVariants = cva('w-[180px] border-grayScale-200', {
+  variants: {
+    placeholder: {
+      false: 'text-grayScale-400',
+      true: 'inherit',
+    },
+  },
+  defaultVariants: {
+    placeholder: false,
+  },
+});
+
 const SelectUI = forwardRef<any, IProps>(
   ({ placeholder, label, itemList, onChange, ...props }, ref) => {
     return (
       <Select {...props} onValueChange={onChange}>
         <SelectTrigger
           ref={ref}
-          className='w-[180px] data-[placeholder]:text-gray-300'
+          className={selectVariants({ placeholder: !!props.value })}
         >
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>

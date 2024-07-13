@@ -38,4 +38,8 @@
     -webkit-box-orient: vertical;
     word-break: keep-all;
   }
+
+  .custom-placeholder::placeholder {
+    @apply text-grayScale-300;
+  }
 }
