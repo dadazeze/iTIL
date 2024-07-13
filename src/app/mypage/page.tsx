@@ -1,7 +1,7 @@
 import Feed from "./_widget/Feed";
 import Profile from "./_widget/Profile";
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <Profile />

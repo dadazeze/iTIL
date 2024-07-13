@@ -2,10 +2,9 @@ import Image from "next/image";
 import RadixIcon from "@/assets/radix-icon";
 import { AvatarUI } from "@/components/common/card/AvatarUI";
 import blogLogo from "../../../../public/icon/blogLogo.svg";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/Button";
 
-export default function Profile() {
+export default async function Profile() {
   return (
     <div className="w-full px-[31px] pt-4">
       <div className="flex flex-row gap-8 ">
@@ -25,13 +24,13 @@ export default function Profile() {
             </div>
           </div>
           <div className="flex flex-row gap-[21px] mt-5">
-            <div>
-              <span>팔로워</span>
-              <span>821</span>
+            <div className="flex flex-row gap-2">
+              <div>팔로워</div>
+              <div>821</div>
             </div>
-            <div>
-              <span>팔로잉</span>
-              <span>48</span>
+            <div className="flex flex-row gap-2">
+              <div>팔로잉</div>
+              <div>48</div>
             </div>
           </div>
         </div>

@@ -6,4 +6,5 @@ export const getDaysInMonth = (yearMonth: string) => {
   // yearMonth: "2024-7"
   const lastDayOfJuly2024 = dayjs(yearMonth).endOf("month").date();
   console.log(`2024년 7월은 ${lastDayOfJuly2024}일이 있습니다.`);
+  return lastDayOfJuly2024;
 };

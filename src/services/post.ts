@@ -1,10 +1,10 @@
-import { IHomePostFilterParams } from '@/app/home/types/parameter';
-import { createClient } from '@/lib/supabase/server';
+import { IHomePostFilterParams } from "@/app/home/types/parameter";
+import { createClient } from "@/lib/supabase/server";
 
 const supabase = createClient();
 
 export const getPosts = async (filter?: IHomePostFilterParams) => {
-  const { data, error } = await supabase.from('post').select('*, profiles(*)');
+  const { data, error } = await supabase.from("post").select("*, profiles(*)");
   if (error) {
     throw new Error(error.message);
   }
@@ -17,7 +17,7 @@ export const getPosts = async (filter?: IHomePostFilterParams) => {
 };
 
 export const createPost = async (data: any) => {
-  const { error } = await supabase.from('posts').insert(data);
+  const { error } = await supabase.from("posts").insert(data);
   if (error) {
     throw new Error(error.message);
   }

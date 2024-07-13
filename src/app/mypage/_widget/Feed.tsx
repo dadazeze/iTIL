@@ -1,7 +1,10 @@
+"use client";
 import Card from "./Card";
+import { getDaysInMonth } from "@/util";
 
 // TODO: 무한스크롤 구현
 export default function Feed() {
+  const days = getDaysInMonth("2024-07");
   return (
     <>
       <div className="container mx-auto p-0">
