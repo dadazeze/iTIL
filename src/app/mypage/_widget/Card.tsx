@@ -1,31 +1,23 @@
-import Image from "next/image";
-import prayImage from "../../../../public/pray.jpg";
+interface Props {
+  src: SourceProps;
+  index: number;
+}
 
-export default function Card() {
-  const images = [
-    prayImage,
-    prayImage,
-    prayImage,
-    prayImage,
-    prayImage,
-    prayImage,
-  ];
+interface SourceProps {
+  title: string;
+  keyword: string;
+  Description: string;
+  like: number;
+  bookMark: number;
+  writtenDate: string;
+}
+export default function Card({ src, index }: Props) {
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center">
-      <div className="container mx-auto p-4">
-        <div className="grid grid-cols-3 gap-4">
-          {images.map((src, index) => (
-            <div key={index} className="relative w-full pb-full">
-              <Image
-                src={src}
-                alt={`Placeholder ${index + 1}`}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+    <div
+      key={`${src.title}-${index}`}
+      className="relative w-full aspect-square bg-level-100 flex items-center justify-center text-xs"
+    >
+      {src.keyword}
     </div>
   );
 }
