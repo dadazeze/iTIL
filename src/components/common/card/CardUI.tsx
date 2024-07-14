@@ -5,12 +5,13 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-} from "@/components/ui/card";
-import { levelToKor, roleToKor } from "@/lib/utils";
-import Link from "next/link";
-import { Button } from "../../ui/Button";
-import Typography from "../../ui/typography";
-import AvatarProfileUI from "./AvatarProfileUI";
+} from '@/components/ui/card';
+import { levelToKor, roleToKor } from '@/lib/utils';
+import Link from 'next/link';
+import { Button } from '../../ui/Button';
+import Typography from '../../ui/typography';
+import AvatarProfileUI from './AvatarProfileUI';
+import CardDescriptionUI from './CardDescriptionUI';
 
 interface IProps {
   item: IPostView;
@@ -29,19 +30,11 @@ export function CardUI({ item }: IProps) {
           createdAt={item.created_at}
         />
       </CardHeader>
-      <CardContent className="pb-0">
-        <div className="flex flex-col">
-          <Typography type="h4">{item.title}</Typography>
-          <div className="flex items-end">
-            <Typography
-              type="pre"
-              className="pt-4 pb-5 elipsis-3 h-[100px] w-[85%]"
-            >
-              {item.description}
-            </Typography>
-            <Link href={"/"} className="underline text-grayScale-400">
-              더보기
-            </Link>
+      <CardContent className='pb-0'>
+        <div className='flex flex-col'>
+          <Typography type='h4'>{item.title}</Typography>
+          <div className='flex items-end'>
+           <CardDescriptionUI description={item.description} />
           </div>
           <div className="flex justify-between p-3">
             <Typography type="p" className="text-xs text-grayScale-400">
@@ -53,16 +46,23 @@ export function CardUI({ item }: IProps) {
           </div>
         </div>
       </CardContent>
-      <CardFooter className="flex justify-around pb-1 pt-1 mt-2">
-        <Button size={"icon"} variant={"ghost"}>
-          <RadixIcon name="HeartIcon" size={20} />
-        </Button>
-        <Button size={"icon"} variant={"ghost"}>
-          <RadixIcon name="ChatBubbleIcon" size={20} />
-        </Button>
-        <Button size={"icon"} variant={"ghost"}>
-          <RadixIcon name="BookmarkIcon" size={20} />
-        </Button>
+      <CardFooter className='flex justify-between pb-1 pt-1 mt-2'>
+        <div>
+          <Button size={'icon'} variant={'ghost'}>
+            <RadixIcon name='HeartIcon' size={20} />
+          </Button>
+          <Button size={'icon'} variant={'ghost'}>
+            <RadixIcon name='ChatBubbleIcon' size={20} />
+          </Button>
+        </div>
+        <div>
+          <Button size={'icon'} variant={'ghost'}>
+            <RadixIcon name='Share1Icon' size={20} />
+          </Button>
+          <Button size={'icon'} variant={'ghost'}>
+            <RadixIcon name='BookmarkIcon' size={20} />
+          </Button>
+        </div>
       </CardFooter>
     </Card>
   );

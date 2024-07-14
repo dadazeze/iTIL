@@ -22,3 +22,8 @@ export const levelToKor: { [key: string]: string } = {
   NINE_YEAR: '9년차',
   TEN_YEAR: '10년차',
 };
+
+export const getIsOverflow = (element: HTMLElement | null) => {
+  if (!element) return false;
+  return element.scrollHeight > element.clientHeight
+}
