@@ -11,7 +11,7 @@ export default function BottomNavBarUI() {
   const router = useRouter();
 
   return (
-    <div className="sticky bottom-0 w-full max-w-[672px]">
+    <div className="fixed bottom-0 w-full max-w-[672px]">
       <nav className="flex justify-around w-full z-50 h-[60px] p-4 pt-2 bg-white shadow-nav-bar">
         <Button
           size={"icon"}

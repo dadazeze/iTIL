@@ -3,20 +3,33 @@ import RadixIcon from "@/assets/radix-icon";
 import { AvatarUI } from "@/components/common/card/AvatarUI";
 import blogLogo from "../../../../public/icon/blogLogo.svg";
 import { Button } from "@/components/ui/Button";
+import { getProfileById } from "@/services/profiles";
+import { getPostsById } from "@/services/post";
+import { roleToKor, levelToKor } from "@/lib/utils";
+import { IUserProfileView } from "@/app/home/types/view";
 
-export default async function Profile() {
+interface IProps {
+  profile?: IUserProfileView | null;
+}
+
+export default async function Profile({ profile }: IProps) {
+  console.log("🎀🎀🎀🎀", profile);
+  const list = await getPostsById(profile?.id);
+
+  console.log("💗💗💗💗", list);
+
   return (
     <div className="w-full px-[31px] pt-4">
       <div className="flex flex-row gap-8 ">
-        <AvatarUI
-          size="l"
-          src="https://i.pinimg.com/564x/96/c8/07/96c8074f92e3e53b5fbc0d6adc7e96fd.jpg"
-        />
+        <AvatarUI size="l" src={profile!.avatar_url} />
         <div className="flex flex-col">
           <div className="flex flex-row max-w-80 gap-20">
             <div className="flex flex-col color">
-              <div>dev_dab</div>
-              <div className="text-grayScale-500 text-xs">프론트엔드/2년차</div>
+              <div>{profile!.username}</div>
+              <div className="text-grayScale-500 text-xs">
+                {roleToKor[profile!.role]} / &nbsp;
+                {levelToKor[profile!.level]}
+              </div>
             </div>
             <div className="flex flex-row gap-1">
               <Image src={blogLogo} alt="blog logo" className="h-fit" />

@@ -16,4 +16,5 @@ export interface IPostView {
   count: number;
   img_url: string | null;
   profiles: IUserProfileView;
+  keyword: string;
 }

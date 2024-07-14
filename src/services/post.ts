@@ -16,6 +16,18 @@ export const getPosts = async (filter?: IHomePostFilterParams) => {
     : data;
 };
 
+export const getPostsById = async (userId?: string) => {
+  if (!userId) return [];
+  const { data, error } = await supabase
+    .from("post")
+    .select("*, profiles(*)")
+    .eq("user_id", userId);
+  if (error) {
+    throw new Error(error.message);
+  }
+  return data;
+};
+
 export const createPost = async (data: any) => {
   const { error } = await supabase.from("posts").insert(data);
   if (error) {

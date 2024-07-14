@@ -1,11 +1,15 @@
 import Feed from "./_widget/Feed";
 import Profile from "./_widget/Profile";
+import { getProfileById } from "@/services/profiles";
+import { getPostsById } from "@/services/post";
 
 export default async function Page() {
+  const profile = await getProfileById();
+  const postList = await getPostsById(profile?.at(0)?.id);
   return (
     <>
-      <Profile />
-      <Feed />
+      <Profile profile={profile?.at(0) ?? null} />
+      <Feed postList={postList} />
     </>
   );
 }
