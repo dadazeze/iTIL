@@ -3,8 +3,6 @@ import RadixIcon from "@/assets/radix-icon";
 import { AvatarUI } from "@/components/common/card/AvatarUI";
 import blogLogo from "../../../../public/icon/blogLogo.svg";
 import { Button } from "@/components/ui/Button";
-import { getProfileById } from "@/services/profiles";
-import { getPostsById } from "@/services/post";
 import { roleToKor, levelToKor } from "@/lib/utils";
 import { IUserProfileView } from "@/app/home/types/view";
 
@@ -13,11 +11,6 @@ interface IProps {
 }
 
 export default async function Profile({ profile }: IProps) {
-  console.log("🎀🎀🎀🎀", profile);
-  const list = await getPostsById(profile?.id);
-
-  console.log("💗💗💗💗", list);
-
   return (
     <div className="w-full px-[31px] pt-4">
       <div className="flex flex-row gap-8 ">

@@ -16,7 +16,6 @@ export default function TextEditor(props: Props) {
     if (description) {
       setPostContent(description);
     }
-    console.log("🥲", postContent);
   }, [description, postContent]);
 
   useEffect(() => {
