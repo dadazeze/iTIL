@@ -39,10 +39,9 @@ export const createPost = async (data: IHomePostParams) => {
 };
 
 export const getPostsByDate = async (date: string) => {
-  const { data, error } = await supabase
-    .from("posts")
-    .select("*")
-    .eq("created_at", date);
+  const { data, error } = await supabase.rpc("get_records_by_month", {
+    date_text: date,
+  });
   if (error) {
     throw new Error(error.message);
   }
