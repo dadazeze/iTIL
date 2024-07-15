@@ -30,7 +30,7 @@ export default async function Layout({
                 size={20}
                 className="-rotate-45 -translate-y-0.5"
               />
-            </Button>
+            </Button> 
           </div>
         }
       />
