@@ -48,7 +48,7 @@ export function CardUI({ item }: IProps) {
               좋아요 4
             </Typography>
             <Typography type="p" className="text-xs text-grayScale-400">
-              조회수 {item.count}
+              조회수 {item.view}
             </Typography>
           </div>
         </div>

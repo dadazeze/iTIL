@@ -13,7 +13,7 @@ export interface IPostView {
   description: string;
   created_at: string;
   user_id: string;
-  count: number;
+  view: number;
   img_url: string | null;
   profiles: IUserProfileView;
   keyword: string;
