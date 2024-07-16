@@ -6,7 +6,6 @@ export interface IHomePostFilterParams {
 }
 
 export interface IHomePostParams {
-  id: number;
   title: string;
   description: string;
   keyword: string;

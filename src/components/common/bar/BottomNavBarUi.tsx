@@ -7,7 +7,11 @@ import { Button } from "../../ui/Button";
 import { useRouter } from "next/navigation";
 import PostModalUI from "../dialog/PostModalUI";
 
-export default function BottomNavBarUI() {
+interface IProps {
+  userId: string
+}
+
+export default function BottomNavBarUI({userId}: IProps) {
   const router = useRouter();
 
   return (
@@ -20,7 +24,7 @@ export default function BottomNavBarUI() {
         >
           <RadixIcon name="HomeIcon" size={30} />
         </Button>
-        <PostModalUI />
+        <PostModalUI userId={userId} />
         <Button
           size={"icon"}
           variant={"ghost"}

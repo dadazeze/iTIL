@@ -30,6 +30,7 @@ const FormContent = () => {
             {...props}
             placeholder='연차'
             itemList={experienceLevelItemList}
+            onChange={props.onChange}
           />
         )}
       </FormUI.Field>

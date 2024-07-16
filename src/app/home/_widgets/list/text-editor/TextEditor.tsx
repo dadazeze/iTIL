@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactQuill, { ReactQuillProps } from "react-quill";
 import "react-quill/dist/quill.snow.css"; // Quill 에디터의 스타일 추가
 import "../../../../../app/globals.css"; //
