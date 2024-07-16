@@ -122,9 +122,17 @@ export default function PostModalUI({ userId }: IProps) {
                     /> */}
                   </div>
                 </DialogTitle>
-                <TextEditor description={contents} onGet={getContents} />
+                <FormUI.Field name="description">
+                  {(props) => (
+                    <TextEditor
+                      description={props.value}
+                      onGet={props.onChange}
+                    />
+                  )}
+                </FormUI.Field>
               </div>
             </div>
+            <Button type="submit">sdf</Button>
           </FormUI>
         </DialogContent>
       </DialogPortal>

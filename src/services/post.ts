@@ -32,7 +32,7 @@ export const getPostsById = async (userId?: string) => {
 };
 
 export const createPost = async (data: IHomePostParams) => {
-  const { error } = await supabase.from("posts").insert(data);
+  const { error } = await supabase.from("post").insert(data);
   if (error) {
     throw new Error(error.message);
   }

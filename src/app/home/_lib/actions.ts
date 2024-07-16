@@ -2,6 +2,7 @@
 
 import { TFormActionState } from "@/app/auth/types/domain";
 import { createPost } from "@/services/post";
+import { revalidatePath } from "next/cache";
 import { IHomePostParams } from "../types/parameter";
 
 export const createPostAction = async (
@@ -18,6 +19,8 @@ export const createPostAction = async (
     };
 
     await createPost({ ...newData, ...extraData });
+    // revalidatePath("/home");
+    console.log({ ...newData, ...extraData });
 
     return {
       status: "success",

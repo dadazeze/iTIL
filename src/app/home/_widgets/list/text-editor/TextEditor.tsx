@@ -18,10 +18,6 @@ export default function TextEditor(props: Props) {
     }
   }, [description, postContent]);
 
-  useEffect(() => {
-    onGet(postContent);
-  }, [postContent]);
-
   const modules = {
     toolbar: [
       [{ header: [1, 2, false] }],
@@ -57,12 +53,12 @@ export default function TextEditor(props: Props) {
     source,
     editor
   ) => {
-    setPostContent(editor.getHTML()); // 에디터의 HTML 내용으로 상태 업데이트
+    onGet(editor.getHTML()); // 에디터의 HTML 내용으로 상태 업데이트
   };
 
   return (
     <ReactQuill
-      value={postContent}
+      value={description}
       onChange={handleChange}
       modules={modules}
       formats={formats}
