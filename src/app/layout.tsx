@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'iTIL',
+  title: "iTIL",
   description:
-    'SNS for software engineers to share their TIL knowledge among same experience levels',
+    "SNS for software engineers to share their TIL knowledge among same experience levels",
 };
 
 export default function RootLayout({
@@ -16,11 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body className={inter.className} suppressHydrationWarning={true}>
-        <div className='max-w-2xl min-w-72 margin-auto shadow-sm'>
-          {children}
-        </div>
+        <div className="max-w-2xl min-w-72 margin-auto">{children}</div>
       </body>
     </html>
   );
