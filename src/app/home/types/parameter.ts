@@ -10,6 +10,6 @@ export interface IHomePostParams {
   description: string;
   keyword: string;
   user_id: string;
-  count: number;
+  view: number;
   img_url: string | null;
 }

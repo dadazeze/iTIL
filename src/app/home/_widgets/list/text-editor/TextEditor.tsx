@@ -3,13 +3,12 @@ import ReactQuill, { ReactQuillProps } from "react-quill";
 import "react-quill/dist/quill.snow.css"; // Quill 에디터의 스타일 추가
 import "../../../../../app/globals.css"; //
 
-type Props = {
+interface IProps {
   description: string;
   onGet: (text: string) => void;
-};
+}
 
-export default function TextEditor(props: Props) {
-  const { description, onGet } = props;
+export default function TextEditor({ description, onGet }: IProps) {
   const [postContent, setPostContent] = useState<string>("");
 
   useEffect(() => {
@@ -57,13 +56,16 @@ export default function TextEditor(props: Props) {
   };
 
   return (
-    <ReactQuill
-      value={description}
-      onChange={handleChange}
-      modules={modules}
-      formats={formats}
-      placeholder="오늘 공부한 내용을 작성하세요. 단 한줄도 괜찮아요 :)"
-      className="h-full custom-quill"
-    />
+    <>
+      <ReactQuill
+        value={description}
+        onChange={handleChange}
+        modules={modules}
+        formats={formats}
+        placeholder="오늘 공부한 내용을 작성하세요. 단 한줄도 괜찮아요 :)"
+        className="h-full custom-quill"
+      />
+      <input type="hidden" name="description" value={description} />
+    </>
   );
 }

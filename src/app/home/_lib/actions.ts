@@ -2,14 +2,14 @@
 
 import { TFormActionState } from "@/app/auth/types/domain";
 import { createPost } from "@/services/post";
-import { revalidatePath } from "next/cache";
 import { IHomePostParams } from "../types/parameter";
 
 export const createPostAction = async (
   prevState: TFormActionState | null,
   data: FormData,
-  extraData: Pick<IHomePostParams, "user_id" | "count">
+  extraData: Pick<IHomePostParams, "user_id" | "view">
 ): Promise<TFormActionState> => {
+  console.log(data);
   try {
     const newData = {
       title: data.get("title") as string,
@@ -21,7 +21,6 @@ export const createPostAction = async (
     await createPost({ ...newData, ...extraData });
     // revalidatePath("/home");
     console.log({ ...newData, ...extraData });
-
     return {
       status: "success",
       message: "Profile updated successfully",
@@ -29,7 +28,7 @@ export const createPostAction = async (
   } catch (e) {
     return {
       status: "error",
-      message: "Profile update failed",
+      message: "Profile update failed" + e,
     };
   }
 };

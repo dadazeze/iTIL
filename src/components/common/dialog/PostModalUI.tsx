@@ -1,5 +1,7 @@
 "use client";
 
+import { TFormActionState } from "@/app/auth/types/domain";
+import { createPostAction } from "@/app/home/_lib/actions";
 import TextEditor from "@/app/home/_widgets/list/text-editor/TextEditor";
 import RadixIcon from "@/assets/radix-icon";
 import { Button } from "@/components/ui/Button";
@@ -10,17 +12,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Form } from "@/components/ui/form";
+import { Input } from "@/components/ui/Input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
+import { useFormState } from "react-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { PostAppBarUI } from "../bar/PostAppBartUI";
-import { useFormState } from "react-dom";
-import { TFormActionState } from "@/app/auth/types/domain";
-import { createPostAction } from "@/app/home/_lib/actions";
 import { FormUI } from "../form/FormUI";
-import { Input } from "@/components/ui/Input";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -56,9 +55,18 @@ export default function PostModalUI({ userId }: IProps) {
 
   const [state, formAction] = useFormState<TFormActionState, FormData>(
     (prevState, data) =>
-      createPostAction(prevState, data, { user_id: userId, count: 0 }),
+      createPostAction(prevState, data, { user_id: userId, view: 0 }),
     null
   );
+  useEffect(() => {
+    if (!state) return;
+    if (state.status === "error") {
+      console.log("error", state);
+    }
+    if (state.status === "success") {
+      console.log("success", state);
+    }
+  }, [state]);
 
   const changeTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
@@ -70,6 +78,8 @@ export default function PostModalUI({ userId }: IProps) {
   const getContents = (text: string) => {
     setContents(text);
   };
+
+  console.log(form.watch('description'))
 
   return (
     <Dialog>
