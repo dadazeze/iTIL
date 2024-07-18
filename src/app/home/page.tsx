@@ -3,6 +3,8 @@ import { getProfileById } from '@/services/profiles';
 import Filter from './_widgets/Filter';
 import { PostList } from './_widgets/PostList';
 
+export const dynamic = "force-dynamic";
+
 export default async function Page() {
   const profile = await getProfileById();
   const postList = await getPosts();

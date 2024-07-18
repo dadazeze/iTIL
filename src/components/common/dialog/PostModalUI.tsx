@@ -53,6 +53,8 @@ export default function PostModalUI({ userId }: IProps) {
     resolver: zodResolver(formSchema),
   });
 
+  const { reset } = form;
+
   const [state, formAction] = useFormState<TFormActionState, FormData>(
     (prevState, data) =>
       createPostAction(prevState, data, { user_id: userId, view: 0 }),
@@ -68,6 +70,8 @@ export default function PostModalUI({ userId }: IProps) {
     }
   }, [state]);
 
+  console.log(state);
+
   const changeTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
   };
@@ -79,19 +83,17 @@ export default function PostModalUI({ userId }: IProps) {
     setContents(text);
   };
 
-  console.log(form.watch('description'))
-
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button size={"icon"} variant={"ghost"}>
+        <Button size={"icon"} variant={"ghost"} onClick={() => reset()}>
           <RadixIcon name="PlusCircledIcon" size={30} />
         </Button>
       </DialogTrigger>
       <DialogPortal>
         <DialogContent className="w-full h-full flex items-center justify-center z-[60] bg-white p-0">
-          <FormUI form={form} action={formAction}>
-            <div className="w-full h-full pb-4 flex flex-col">
+          <div className="w-full h-full pb-4 flex flex-col">
+            <FormUI form={form} action={formAction}>
               <PostAppBarUI />
               <div className="px-4 mt-5 h-full flex flex-col">
                 <DialogTitle className="text-lg font-bold mb-4 mt-[24]">
@@ -141,9 +143,8 @@ export default function PostModalUI({ userId }: IProps) {
                   )}
                 </FormUI.Field>
               </div>
-            </div>
-            <Button type="submit">sdf</Button>
-          </FormUI>
+            </FormUI>
+          </div>
         </DialogContent>
       </DialogPortal>
     </Dialog>
