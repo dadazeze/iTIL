@@ -12,13 +12,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning={true}>
         <div className="max-w-2xl min-w-72 margin-auto">{children}</div>
+        {modal}
       </body>
     </html>
   );

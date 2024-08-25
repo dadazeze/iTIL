@@ -23,6 +23,17 @@ export default function Feed({ postList }: Iprop) {
             <Card key={`${post.title}-${index}`} post={post} index={index} />
           ))}
         </div>
+        {/* <div className="grid grid-cols-5">
+          {list.map((post, index) => (
+            <div key={`${post.title}-${index}`}>
+              <div className="flex flex-row ml-[16px] my-[6px]">
+                <div>{list}&nbsp;</div>
+                <div>2024</div>
+              </div>
+              <Card post={post} index={index} />
+            </div>
+          ))}
+        </div> */}
       </div>
     </>
   );

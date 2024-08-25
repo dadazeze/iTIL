@@ -1,16 +1,18 @@
-import RadixIcon from '@/assets/radix-icon';
-import BottomNavBarUI from '@/shared/components/common/bar/BottomNavBarUI';
-import { MenuBarUI } from '@/shared/components/common/bar/MenuBarUI';
-import { Button } from '@/shared/components/ui/Button';
-import Typography from '@/shared/components/ui/typography';
-import { getUserId } from '@/widgets/home/lib/utils';
+import RadixIcon from "@/assets/radix-icon";
+import BottomNavBarUI from "@/shared/components/common/bar/BottomNavBarUI";
+import { MenuBarUI } from "@/shared/components/common/bar/MenuBarUI";
+import { Button } from "@/shared/components/ui/Button";
+import Typography from "@/shared/components/ui/typography";
+import { getUserId } from "@/widgets/home/lib/utils";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export default async function Layout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   const userId = await getUserId();
 
@@ -18,27 +20,27 @@ export default async function Layout({
     <>
       <MenuBarUI
         left={
-          <Typography type='h3' className='text-xl'>
+          <Typography type="h3" className="text-xl">
             iTIL
           </Typography>
         }
         right={
-          <div className='flex gap-1'>
-            <Button size={'icon'} variant={'ghost'}>
-              <RadixIcon name='BellIcon' size={20} />
+          <div className="flex gap-1">
+            <Button size={"icon"} variant={"ghost"}>
+              <RadixIcon name="BellIcon" size={20} />
             </Button>
-            <Button size={'icon'} variant={'ghost'}>
+            <Button size={"icon"} variant={"ghost"}>
               <RadixIcon
-                name='PaperPlaneIcon'
+                name="PaperPlaneIcon"
                 size={20}
-                className='-rotate-45 -translate-y-0.5'
+                className="-rotate-45 -translate-y-0.5"
               />
             </Button>
           </div>
         }
       />
-      <div className='mb-16'>{children}</div>
-      <BottomNavBarUI userId={userId ?? ''} />
+      <div className="mb-16">{children}</div>
+      <BottomNavBarUI userId={userId ?? ""} />
     </>
   );
 }
