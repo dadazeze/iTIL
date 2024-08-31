@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useFormState } from 'react-dom';
 import { useForm } from 'react-hook-form';
-import { updateProfile } from '../../../lib/actions';
+import { updateProfileAction } from '../../../lib/actions';
 import FormContent from './form-content';
 
 export default function SignUpForm() {
@@ -19,7 +19,7 @@ export default function SignUpForm() {
   });
 
   const [state, formAction] = useFormState<TFormActionState, FormData>(
-    updateProfile,
+    updateProfileAction,
     null
   );
 

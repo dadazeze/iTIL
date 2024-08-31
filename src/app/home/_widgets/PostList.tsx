@@ -7,7 +7,7 @@ interface IProps {
 
 export const PostList = ({ postList }: IProps) => {
   return (
-    <section className='flex flex-col gap-1 bg-grayScale-100 pt-1 pb-1'>
+    <section className='flex flex-col gap-1 bg-grayScale-100 pt-1 pb-[65px]'>
       {postList.map((item) => (
         <CardUI key={item.id} item={item} />
       ))}

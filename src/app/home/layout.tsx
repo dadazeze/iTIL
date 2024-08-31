@@ -1,4 +1,4 @@
-import BottomNavBarUI from '@/components/common/bar/BottomNavBarUi';
+import BottomNavBarUI from '@/components/common/bar/BottomNavBarUI';
 import MainAppBarUI from '@/components/common/bar/MainAppBarUI';
 import { getProfileById } from '@/services/profiles';
 import { redirect } from 'next/navigation';
@@ -23,7 +23,7 @@ export default async function Layout({
     <>
       <MainAppBarUI  />
       {children}
-      <BottomNavBarUI />
+      <BottomNavBarUI userId={profile?.at(0)?.id ?? ''} />
     </>
   );
 }

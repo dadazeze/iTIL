@@ -32,7 +32,7 @@ export const PostAppBarUI = () => {
             </Button>
           </DialogClose>
           <DialogClose asChild>
-            <Button variant={"save"} size={"smButton"} onClick={onSave}>
+            <Button variant={"save"} size={"smButton"} onClick={onSave} type="submit">
               저장
             </Button>
           </DialogClose>

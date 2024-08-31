@@ -6,7 +6,6 @@ import { PostList } from './_widgets/PostList';
 export default async function Page() {
   const profile = await getProfileById();
   const postList = await getPosts();
-  console.log('💚', postList);
   return (
     <main>
       <Filter profile={profile?.at(0) ?? null} />

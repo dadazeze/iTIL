@@ -3,7 +3,7 @@
 import { updateProfileById } from '@/services/profiles';
 import { TFormActionState } from '../../types/domain';
 
-export const updateProfile = async (
+export const updateProfileAction = async (
   prevState: TFormActionState | null,
   data: FormData
 ): Promise<TFormActionState> => {
@@ -13,7 +13,7 @@ export const updateProfile = async (
       level: data.get('level') as string,
     };
 
-    updateProfileById(newData);
+    await updateProfileById(newData);
 
     return {
       status: 'success',

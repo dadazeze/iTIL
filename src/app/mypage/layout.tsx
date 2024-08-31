@@ -1,5 +1,5 @@
 import RadixIcon from "@/assets/radix-icon";
-import BottomNavBarUI from "@/components/common/bar/BottomNavBarUi";
+import BottomNavBarUI from "@/components/common/bar/BottomNavBarUI";
 import { MenuBarUI } from "@/components/common/bar/MenuBarUI";
 import { Button } from "@/components/ui/Button";
 import Typography from "@/components/ui/typography";
