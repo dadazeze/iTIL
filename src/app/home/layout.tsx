@@ -21,7 +21,7 @@ export default async function Layout({
 
   return (
     <>
-      <MainAppBarUI />
+      <MainAppBarUI  />
       {children}
       <BottomNavBarUI />
     </>
