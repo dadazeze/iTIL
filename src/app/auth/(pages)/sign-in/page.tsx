@@ -1,4 +1,4 @@
-import SignInForm from './widgets/form/form';
+import SignInForm from '../../../../widgets/auth/components/SignInForm';
 
 export default function SignInPage() {
   return (

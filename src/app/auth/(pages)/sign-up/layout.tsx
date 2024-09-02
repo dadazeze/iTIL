@@ -1,6 +1,4 @@
-import AuthAppBarUI from '@/components/common/bar/AuthAppBarUI';
-import { MenuBarUI } from '@/components/common/bar/MenuBarUI';
-import Typography from '@/components/ui/typography';
+import AuthAppBarUI from '@/shared/components/common/bar/AuthAppBarUI';
 
 export default function SignUpLayout({
   children,

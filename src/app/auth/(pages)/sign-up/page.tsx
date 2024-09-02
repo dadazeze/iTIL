@@ -1,4 +1,4 @@
-import SignUpForm from './widgets/form/form';
+import SignUpForm from '../../../../widgets/auth/components/SignUpForm';
 
 export default function SignUpPage() {
   return (
