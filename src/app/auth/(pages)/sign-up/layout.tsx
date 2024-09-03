@@ -1,4 +1,4 @@
-import AuthAppBarUI from '@/shared/components/common/bar/AuthAppBarUI';
+import AuthAppBarUI from "@/widgets/auth/components/AuthAppBarUI";
 
 export default function SignUpLayout({
   children,

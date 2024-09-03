@@ -1,3 +1,5 @@
+'use client'
+
 import RadixIcon from '@/assets/radix-icon';
 import {
   Card,
@@ -11,14 +13,19 @@ import { Button } from '../../ui/Button';
 import Typography from '../../ui/typography';
 import AvatarProfileUI from './AvatarProfileUI';
 import CardDescriptionUI from './CardDescriptionUI';
+import { useRouter } from 'next/navigation';
 
 interface IProps {
   item: IPostView;
 }
 
 export function CardUI({ item }: IProps) {
+  const router = useRouter();
+  const handleCardClick = () => {
+    router.push(`/post/${item.id}`);
+  };
   return (
-    <Card className='w-full rounded-none border-none'>
+    <Card className='w-full rounded-none border-none cursor-pointer' onClick={handleCardClick}>
       <CardHeader>
         <AvatarProfileUI
           src={item.profiles.avatar_url}

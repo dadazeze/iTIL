@@ -1,13 +1,12 @@
-import { createClient } from '@/shared/lib/supabase/server';
+import { createClient } from "@/shared/lib/supabase/server";
 import {
   IHomePostFilterParams,
   IHomePostParams,
-} from '@/widgets/home/types/parameter';
+} from "@/widgets/home/types/parameter";
 
-const supabase = createClient();
-
-export const getPosts = async (filter?: IHomePostFilterParams) => {
-  const { data, error } = await supabase.from('post').select('*, profiles(*)');
+export const getPostList = async (filter?: IHomePostFilterParams) => {
+  const supabase = createClient();
+  const { data, error } = await supabase.from("post").select("*, profiles(*)");
   if (error) {
     throw new Error(error.message);
   }
@@ -19,27 +18,44 @@ export const getPosts = async (filter?: IHomePostFilterParams) => {
     : data;
 };
 
-export const getPostsById = async (userId?: string) => {
+export const getPostListByUserId = async (userId?: string) => {
+  const supabase = createClient();
   if (!userId) return [];
   const { data, error } = await supabase
-    .from('post')
-    .select('*, profiles(*)')
-    .eq('user_id', userId);
+    .from("post")
+    .select("*, profiles(*)")
+    .eq("user_id", userId);
   if (error) {
     throw new Error(error.message);
   }
+
   return data;
 };
 
+export const getPostById = async (postId: string) => {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from("post")
+    .select("*")
+    .eq("id", postId);
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data[0];
+};
+
 export const createPost = async (data: IHomePostParams) => {
-  const { error } = await supabase.from('post').insert(data);
+  const supabase = createClient();
+  const { error } = await supabase.from("post").insert(data);
   if (error) {
     throw new Error(error.message);
   }
 };
 
-export const getPostsByDate = async (date: string) => {
-  const { data, error } = await supabase.rpc('get_records_by_month', {
+export const getPostListByDate = async (date: string) => {
+  const supabase = createClient();
+  const { data, error } = await supabase.rpc("get_records_by_month", {
     date_text: date,
   });
   if (error) {

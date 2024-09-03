@@ -2,6 +2,7 @@
 
 import Typography from '@/shared/components/ui/typography';
 import { getIsOverflow } from '@/shared/lib/utils';
+import DOMPurify from 'dompurify';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
