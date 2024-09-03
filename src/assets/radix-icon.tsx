@@ -1,4 +1,4 @@
-import { cn } from '@/lib/style/utils';
+import { cn } from '@/shared/lib/style/utils';
 import * as icons from '@radix-ui/react-icons';
 import { IconProps } from '@radix-ui/react-icons/dist/types';
 

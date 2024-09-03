@@ -1,0 +1,49 @@
+import { createClient } from '@/shared/lib/supabase/server';
+import {
+  IHomePostFilterParams,
+  IHomePostParams,
+} from '@/widgets/home/types/parameter';
+
+const supabase = createClient();
+
+export const getPosts = async (filter?: IHomePostFilterParams) => {
+  const { data, error } = await supabase.from('post').select('*, profiles(*)');
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return filter
+    ? data.filter(
+        (item) => item.role === filter.role && item.level === filter.level
+      )
+    : data;
+};
+
+export const getPostsById = async (userId?: string) => {
+  if (!userId) return [];
+  const { data, error } = await supabase
+    .from('post')
+    .select('*, profiles(*)')
+    .eq('user_id', userId);
+  if (error) {
+    throw new Error(error.message);
+  }
+  return data;
+};
+
+export const createPost = async (data: IHomePostParams) => {
+  const { error } = await supabase.from('post').insert(data);
+  if (error) {
+    throw new Error(error.message);
+  }
+};
+
+export const getPostsByDate = async (date: string) => {
+  const { data, error } = await supabase.rpc('get_records_by_month', {
+    date_text: date,
+  });
+  if (error) {
+    throw new Error(error.message);
+  }
+  return data;
+};

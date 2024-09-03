@@ -1,7 +1,7 @@
-import { getPosts } from '@/services/post';
-import { getProfileById } from '@/services/profiles';
-import Filter from './_widgets/Filter';
-import { PostList } from './_widgets/PostList';
+import { getPosts } from '@/shared/services/post';
+import { getProfileById } from '@/shared/services/profiles';
+import Filter from '../../widgets/home/components/Filter';
+import { PostList } from '../../widgets/home/components/PostList';
 
 export const dynamic = "force-dynamic";
 
