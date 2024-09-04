@@ -1,12 +1,12 @@
-import { createClient } from "@/shared/lib/supabase/server";
+import { createClient } from '@/shared/lib/supabase/server';
 import {
   IHomePostFilterParams,
   IHomePostParams,
-} from "@/widgets/home/types/parameter";
+} from '@/widgets/home/types/parameter';
 
 export const getPostList = async (filter?: IHomePostFilterParams) => {
   const supabase = createClient();
-  const { data, error } = await supabase.from("post").select("*, profiles(*)");
+  const { data, error } = await supabase.from('post').select('*, profiles(*)');
   if (error) {
     throw new Error(error.message);
   }
@@ -22,9 +22,9 @@ export const getPostListByUserId = async (userId?: string) => {
   const supabase = createClient();
   if (!userId) return [];
   const { data, error } = await supabase
-    .from("post")
-    .select("*, profiles(*)")
-    .eq("user_id", userId);
+    .from('post')
+    .select('*, profiles(*)')
+    .eq('user_id', userId);
   if (error) {
     throw new Error(error.message);
   }
@@ -35,9 +35,9 @@ export const getPostListByUserId = async (userId?: string) => {
 export const getPostById = async (postId: string) => {
   const supabase = createClient();
   const { data, error } = await supabase
-    .from("post")
-    .select("*")
-    .eq("id", postId);
+    .from('post')
+    .select('*')
+    .eq('id', postId);
   if (error) {
     throw new Error(error.message);
   }
@@ -47,7 +47,7 @@ export const getPostById = async (postId: string) => {
 
 export const createPost = async (data: IHomePostParams) => {
   const supabase = createClient();
-  const { error } = await supabase.from("post").insert(data);
+  const { error } = await supabase.from('post').insert(data);
   if (error) {
     throw new Error(error.message);
   }
@@ -55,7 +55,7 @@ export const createPost = async (data: IHomePostParams) => {
 
 export const getPostListByDate = async (date: string) => {
   const supabase = createClient();
-  const { data, error } = await supabase.rpc("get_records_by_month", {
+  const { data, error } = await supabase.rpc('get_records_by_month', {
     date_text: date,
   });
   if (error) {

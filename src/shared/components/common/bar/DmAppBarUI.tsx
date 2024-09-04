@@ -14,7 +14,7 @@ export const DmAppBar = ({ userId }: Props) => {
           <RadixIcon
             name='ArrowLeftIcon'
             size={20}
-            className=' -translate-y-0.5 cursor-pointer'
+            className='-translate-y-0.5 cursor-pointer'
           />
         </DialogClose>
       </AppBarUI.Left>

@@ -4,7 +4,7 @@ interface Props {
   index: number;
 }
 
-export default function Card({ post, index }: Props) {
+export default function MyPageCard({ post, index }: Props) {
   return (
     <div
       key={`${post.title}-${index}`}

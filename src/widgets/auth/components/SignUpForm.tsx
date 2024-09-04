@@ -1,7 +1,7 @@
 'use client';
 
-import { TFormActionState } from '@/widgets/auth/types/domain';
 import { FormUI } from '@/shared/components/common/form/FormUI';
+import { TFormActionState } from '@/shared/types/domain';
 import { SignUpParams } from '@/widgets/auth/types/parameter';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';

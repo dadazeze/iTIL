@@ -2,14 +2,14 @@ import { cn } from '@/shared/lib/style/utils';
 import { Ref } from 'react';
 
 interface IProps {
-  type: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'pre';
+  type?: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'pre';
   className?: string;
   children?: React.ReactNode;
   textRef?: Ref<HTMLElement>;
 }
 
 export default function Typography({
-  type,
+  type = 'p',
   className,
   children,
   textRef,

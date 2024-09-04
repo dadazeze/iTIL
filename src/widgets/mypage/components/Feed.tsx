@@ -1,7 +1,7 @@
 'use client';
 import { getDaysInMonth } from '@/shared/lib/utils';
 import { IPostView } from '@/widgets/home/types/view';
-import Card from './Card';
+import MyPageCard from './MyPageCard';
 
 interface Iprop {
   postList: IPostView[];
@@ -20,7 +20,11 @@ export default function Feed({ postList }: Iprop) {
         </div>
         <div className='grid grid-cols-5'>
           {postList.map((post, index) => (
-            <Card key={`${post.title}-${index}`} post={post} index={index} />
+            <MyPageCard
+              key={`${post.title}-${index}`}
+              post={post}
+              index={index}
+            />
           ))}
         </div>
       </div>

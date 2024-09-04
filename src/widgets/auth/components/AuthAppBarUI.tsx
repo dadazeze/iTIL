@@ -1,3 +1,5 @@
+'use client';
+
 import RadixIcon from '@/assets/radix-icon';
 import { Button } from '@/shared/components/ui/Button';
 import Typography from '@/shared/components/ui/typography';
@@ -18,7 +20,7 @@ export default function AuthAppBarUI({ signIn }: IProps) {
             <RadixIcon
               name='ArrowLeftIcon'
               size={20}
-              className=' -translate-y-0.5'
+              className='-translate-y-0.5'
               onClick={() => router.back()}
             />
           </Button>
