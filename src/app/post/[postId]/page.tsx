@@ -1,4 +1,5 @@
-import { getPostById } from '@/shared/services/post';
+import { CardDetailUI } from "@/shared/components/common/card/CardDetailUI";
+import { getPostById } from "@/shared/services/post";
 
 interface IProps {
   params: {
@@ -7,7 +8,11 @@ interface IProps {
 }
 
 export default async function PostPage({ params }: IProps) {
-  
-  // console.log(post)
-  return <></>;
+  const postId = params.postId;
+  const post = await getPostById(postId);
+  return (
+    <>
+      <CardDetailUI item={post} />
+    </>
+  );
 }

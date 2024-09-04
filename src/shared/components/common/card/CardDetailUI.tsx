@@ -1,8 +1,18 @@
 import React from 'react'
-import { Card, CardHeader } from '../../ui/card'
+import { Card, CardContent, CardFooter, CardHeader } from '../../ui/card'
 import AvatarProfileUI from './AvatarProfileUI'
+import Typography from '../../ui/typography'
+import CardDescriptionUI from './CardDescriptionUI'
+import { Button } from '../../ui/Button'
+import RadixIcon from '@/assets/radix-icon'
+import { IPostView } from '@/widgets/home/types/view'
+import { levelToKor, roleToKor } from '@/shared/lib/utils'
 
-export const CardDetailUI = () => {
+interface IProps {
+  item: IPostView;
+}
+
+export const CardDetailUI = ({ item }: IProps) => {
   return (
     <Card className='w-full rounded-none border-none cursor-pointer'>
       <CardHeader>
@@ -19,7 +29,7 @@ export const CardDetailUI = () => {
         <div className='flex flex-col'>
           <Typography type='h4'>{item.title}</Typography>
           <div className='flex items-end'>
-            <CardDescriptionUI description={item.description} />
+            <CardDescriptionUI description={item.description} isDetail={true} />
           </div>
           <div className='flex justify-between p-3'>
             <Typography type='p' className='text-xs text-grayScale-400'>

@@ -36,7 +36,7 @@ export const getPostById = async (postId: string) => {
   const supabase = createClient();
   const { data, error } = await supabase
     .from('post')
-    .select('*')
+    .select('*, profiles(*)')
     .eq('id', postId);
   if (error) {
     throw new Error(error.message);
@@ -61,5 +61,6 @@ export const getPostListByDate = async (date: string) => {
   if (error) {
     throw new Error(error.message);
   }
+
   return data;
 };

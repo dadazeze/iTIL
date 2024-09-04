@@ -8,9 +8,10 @@ import { useEffect, useRef, useState } from 'react';
 
 interface IProps {
   description: string;
+  isDetail?: boolean;
 }
 
-export default function CardDescriptionUI({ description }: IProps) {
+export default function CardDescriptionUI({ description, isDetail }: IProps) {
   const [isOverflow, setIsOverflow] = useState(false);
   const descriptionRef = useRef<HTMLDivElement>(null);
 
@@ -25,7 +26,7 @@ export default function CardDescriptionUI({ description }: IProps) {
         ref={descriptionRef}
         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
       />
-      {isOverflow && (
+      {isOverflow && !isDetail && (
         <Link href={'/'} className='text-grayScale-400'>
           더보기
         </Link>
