@@ -1,6 +1,7 @@
 import RadixIcon from '@/assets/radix-icon';
 import { Button } from '@/shared/components/ui/Button';
 import Typography from '@/shared/components/ui/typography';
+import { cn } from '@/shared/lib/style/utils';
 import dayjs from 'dayjs';
 import ko from 'dayjs/locale/ko';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -13,6 +14,7 @@ interface IProps {
   src: string;
   isComment?: boolean;
   size?: string;
+  className?: string;
 }
 
 export default function AvatarProfileUI({
@@ -21,12 +23,13 @@ export default function AvatarProfileUI({
   src,
   createdAt,
   isComment,
+  className,
   size,
 }: IProps) {
   dayjs.extend(relativeTime);
   dayjs.locale(ko);
   return (
-    <div className='flex justify-left gap-2'>
+    <div className={cn('flex justify-left gap-2', className)}>
       <AvatarUI src={src} />
       <div className='flex flex-col'>
         <div className='flex items-center gap-2'>
