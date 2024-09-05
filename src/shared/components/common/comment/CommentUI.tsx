@@ -2,6 +2,10 @@ import Typography from '../../ui/typography';
 import AvatarProfileUI from '../card/AvatarProfileUI';
 import SubComment from './SubComment';
 
+interface IProps {
+  commentList: 
+}
+
 export default function CommentUI() {
   return (
     <section>
