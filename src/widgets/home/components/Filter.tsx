@@ -1,9 +1,9 @@
 'use client';
 
 import { SelectUI } from '@/shared/components/common/form/SelectUI';
-import { useState } from 'react';
-import { IUserProfileView } from '../types/view';
 import { experienceLevelItemList, roleItemList } from '@/shared/lib/constants';
+import { IUserProfileView } from '@/widgets/common/types/view';
+import { useState } from 'react';
 
 interface IProps {
   profile: IUserProfileView | null;

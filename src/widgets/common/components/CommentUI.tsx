@@ -1,9 +1,10 @@
-import Typography from '../../ui/typography';
-import AvatarProfileUI from '../card/AvatarProfileUI';
+import AvatarProfileUI from '../../../shared/components/common/card/AvatarProfileUI';
+import Typography from '../../../shared/components/ui/typography';
+import { ICommentView } from '../types/view';
 import SubComment from './SubComment';
 
 interface IProps {
-  commentList: 
+  commentList: ICommentView;
 }
 
 export default function CommentUI() {

@@ -1,4 +1,4 @@
-import { IPostView } from '@/widgets/home/types/view';
+import { IPostView } from '@/widgets/common/types/view';
 interface Props {
   post: IPostView;
   index: number;

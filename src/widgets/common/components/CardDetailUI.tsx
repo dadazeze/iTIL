@@ -1,31 +1,24 @@
-'use client'
-
 import RadixIcon from '@/assets/radix-icon';
+import { levelToKor, roleToKor } from '@/shared/lib/utils';
+import AvatarProfileUI from '../../../shared/components/common/card/AvatarProfileUI';
+import CardDescriptionUI from '../../../shared/components/common/card/CardDescriptionUI';
+import { Button } from '../../../shared/components/ui/Button';
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-} from '@/shared/components/ui/card';
-import { levelToKor, roleToKor } from '@/shared/lib/utils';
-import { IPostView } from '@/widgets/home/types/view';
-import { Button } from '../../ui/Button';
-import Typography from '../../ui/typography';
-import AvatarProfileUI from './AvatarProfileUI';
-import CardDescriptionUI from './CardDescriptionUI';
-import { useRouter } from 'next/navigation';
+} from '../../../shared/components/ui/card';
+import Typography from '../../../shared/components/ui/typography';
+import { IPostView } from '../types/view';
 
 interface IProps {
   item: IPostView;
 }
 
-export function CardUI({ item }: IProps) {
-  const router = useRouter();
-  const handleCardClick = () => {
-    router.push(`/post/${item.id}`);
-  };
+export const CardDetailUI = ({ item }: IProps) => {
   return (
-    <Card className='w-full rounded-none border-none cursor-pointer' onClick={handleCardClick}>
+    <Card className='w-full rounded-none border-none cursor-pointer'>
       <CardHeader>
         <AvatarProfileUI
           src={item.profiles.avatar_url}
@@ -40,7 +33,7 @@ export function CardUI({ item }: IProps) {
         <div className='flex flex-col'>
           <Typography type='h4'>{item.title}</Typography>
           <div className='flex items-end'>
-            <CardDescriptionUI description={item.description} />
+            <CardDescriptionUI description={item.description} isDetail={true} />
           </div>
           <div className='flex justify-between p-3'>
             <Typography type='p' className='text-xs text-grayScale-400'>
@@ -72,4 +65,4 @@ export function CardUI({ item }: IProps) {
       </CardFooter>
     </Card>
   );
-}
+};

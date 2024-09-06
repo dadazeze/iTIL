@@ -2,7 +2,7 @@ import RadixIcon from '@/assets/radix-icon';
 import { AvatarUI } from '@/shared/components/common/card/AvatarUI';
 import { Button } from '@/shared/components/ui/Button';
 import { levelToKor, roleToKor } from '@/shared/lib/utils';
-import { IUserProfileView } from '@/widgets/home/types/view';
+import { IUserProfileView } from '@/widgets/common/types/view';
 import Image from 'next/image';
 import blogLogo from '../../../../public/icon/blogLogo.svg';
 

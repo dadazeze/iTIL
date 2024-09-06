@@ -1,6 +1,6 @@
 'use client';
 import { getDaysInMonth } from '@/shared/lib/utils';
-import { IPostView } from '@/widgets/home/types/view';
+import { IPostView } from '@/widgets/common/types/view';
 import MyPageCard from './MyPageCard';
 
 interface Iprop {

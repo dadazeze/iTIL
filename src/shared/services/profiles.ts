@@ -1,5 +1,5 @@
 import { createClient } from '@/shared/lib/supabase/server';
-import { IUserProfileView } from '@/widgets/home/types/view';
+import { IUserProfileView } from '@/widgets/common/types/view';
 
 const supabase = createClient();
 

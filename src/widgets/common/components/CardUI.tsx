@@ -1,20 +1,34 @@
-import React from 'react'
-import { Card, CardContent, CardFooter, CardHeader } from '../../ui/card'
-import AvatarProfileUI from './AvatarProfileUI'
-import Typography from '../../ui/typography'
-import CardDescriptionUI from './CardDescriptionUI'
-import { Button } from '../../ui/Button'
-import RadixIcon from '@/assets/radix-icon'
-import { IPostView } from '@/widgets/home/types/view'
-import { levelToKor, roleToKor } from '@/shared/lib/utils'
+'use client';
+
+import RadixIcon from '@/assets/radix-icon';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from '@/shared/components/ui/card';
+import { levelToKor, roleToKor } from '@/shared/lib/utils';
+import { IPostView } from '@/widgets/common/types/view';
+import { useRouter } from 'next/navigation';
+import AvatarProfileUI from '../../../shared/components/common/card/AvatarProfileUI';
+import CardDescriptionUI from '../../../shared/components/common/card/CardDescriptionUI';
+import { Button } from '../../../shared/components/ui/Button';
+import Typography from '../../../shared/components/ui/typography';
 
 interface IProps {
   item: IPostView;
 }
 
-export const CardDetailUI = ({ item }: IProps) => {
+export function CardUI({ item }: IProps) {
+  const router = useRouter();
+  const handleCardClick = () => {
+    router.push(`/post/${item.id}`);
+  };
   return (
-    <Card className='w-full rounded-none border-none cursor-pointer'>
+    <Card
+      className='w-full rounded-none border-none cursor-pointer'
+      onClick={handleCardClick}
+    >
       <CardHeader>
         <AvatarProfileUI
           src={item.profiles.avatar_url}
@@ -29,7 +43,7 @@ export const CardDetailUI = ({ item }: IProps) => {
         <div className='flex flex-col'>
           <Typography type='h4'>{item.title}</Typography>
           <div className='flex items-end'>
-            <CardDescriptionUI description={item.description} isDetail={true} />
+            <CardDescriptionUI description={item.description} />
           </div>
           <div className='flex justify-between p-3'>
             <Typography type='p' className='text-xs text-grayScale-400'>
@@ -60,5 +74,5 @@ export const CardDetailUI = ({ item }: IProps) => {
         </div>
       </CardFooter>
     </Card>
-  )
+  );
 }

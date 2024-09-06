@@ -1,4 +1,4 @@
-import { CardUI } from '@/shared/components/common/card/CardUI';
+import { CardUI } from '@/widgets/common/components/CardUI';
 import { IPostView } from '../types/view';
 
 interface IProps {
