@@ -22,8 +22,13 @@ interface IProps {
 export function CardUI({ item }: IProps) {
   const router = useRouter();
   const handleCardClick = () => {
-    router.push(`/post/${item.id}`);
+    if (!isNaN(Number(item.id))) {
+      router.push(`/post/${item.id}`);
+    } else {
+      console.error('Invalid postId');
+    }
   };
+
   return (
     <Card
       className='w-full rounded-none border-none cursor-pointer'

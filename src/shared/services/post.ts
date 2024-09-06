@@ -34,10 +34,18 @@ export const getPostListByUserId = async (userId?: string) => {
 
 export const getPostById = async (postId: string) => {
   const supabase = createClient();
+
+  const numericPostId = Number(postId);
+
+  // postId가 유효한 숫자인지 확인
+  if (isNaN(numericPostId)) {
+    throw new Error('Post ID must be a valid number.');
+  }
+
   const { data, error } = await supabase
     .from('post')
     .select('*, profiles(*)')
-    .eq('id', postId);
+    .eq('id', numericPostId);
   if (error) {
     throw new Error(error.message);
   }
