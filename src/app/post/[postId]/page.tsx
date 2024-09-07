@@ -17,7 +17,9 @@ export default async function PostPage({ params }: IProps) {
   return (
     <div className='bg-grayScale-100 flex flex-col gap-2'>
       <CardDetailUI item={post} />
-      <CommentUI />
+      {commentList.map((item) => (
+        <CommentUI key={item.id} item={item} len={commentList.length} />
+      ))}
     </div>
   );
 }
