@@ -1,7 +1,6 @@
 import RadixIcon from '@/assets/radix-icon';
 import { levelToKor, roleToKor } from '@/shared/lib/utils';
 import AvatarProfileUI from '../../../shared/components/common/card/AvatarProfileUI';
-import CardDescriptionUI from '../../../shared/components/common/card/CardDescriptionUI';
 import { Button } from '../../../shared/components/ui/Button';
 import {
   Card,
@@ -11,6 +10,7 @@ import {
 } from '../../../shared/components/ui/card';
 import Typography from '../../../shared/components/ui/typography';
 import { IPostView } from '../types/view';
+import CardDescriptionUI from './CardDescriptionUI';
 
 interface IProps {
   item: IPostView;

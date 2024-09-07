@@ -33,14 +33,14 @@ export default function AvatarProfileUI({
       <AvatarUI src={src} />
       <div className='flex flex-col'>
         <div className='flex items-center gap-2'>
-          <Typography type='p' className='text-sm text-gray-600'>
+          <Typography type='p' className='text-sm text-grayScale-600'>
             {nickName}
           </Typography>
-          <Typography type='p' className='text-xs text-gray-300'>
+          <Typography type='p' className='text-xs text-grayScale-300 font-bold'>
             {dayjs(createdAt).fromNow()}
           </Typography>
         </div>
-        <Typography type='p' className='text-sm text-gray-300'>
+        <Typography type='p' className='text-sm text-grayScale-400'>
           {roleAndLevel}
         </Typography>
       </div>

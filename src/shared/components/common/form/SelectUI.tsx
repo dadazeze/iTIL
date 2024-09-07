@@ -40,7 +40,7 @@ const SelectUI = forwardRef<any, IProps>(
         >
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className='border-grayScale-400'>
           <SelectGroup>
             {label && <SelectLabel>{label}</SelectLabel>}
             {itemList.map((item) => (

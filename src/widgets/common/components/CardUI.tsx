@@ -11,9 +11,9 @@ import { levelToKor, roleToKor } from '@/shared/lib/utils';
 import { IPostView } from '@/widgets/common/types/view';
 import { useRouter } from 'next/navigation';
 import AvatarProfileUI from '../../../shared/components/common/card/AvatarProfileUI';
-import CardDescriptionUI from '../../../shared/components/common/card/CardDescriptionUI';
 import { Button } from '../../../shared/components/ui/Button';
 import Typography from '../../../shared/components/ui/typography';
+import CardDescriptionUI from './CardDescriptionUI';
 
 interface IProps {
   item: IPostView;
