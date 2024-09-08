@@ -1,4 +1,5 @@
-import BottomNavBarUI from '@/shared/components/common/bar/BottomNavBarUI';
+
+import MainBottomNavBarUI from '@/widgets/home/components/MainBottomNavBarUI';
 import { getUserId } from '@/widgets/home/lib/utils';
 import { MyPageAppBar } from '@/widgets/mypage/components/MyPageAppBar';
 
@@ -15,7 +16,7 @@ export default async function Layout({
     <>
       <MyPageAppBar />
       <div className='mb-16'>{children}</div>
-      <BottomNavBarUI userId={userId ?? ''} />
+      <MainBottomNavBarUI userId={userId ?? ''} />
     </>
   );
 }

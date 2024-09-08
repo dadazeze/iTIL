@@ -1,9 +1,9 @@
 import { createClient } from '@/shared/lib/supabase/server';
 import { IUserProfileView } from '@/widgets/common/types/view';
 
-const supabase = createClient();
-
 export const getProfileById = async (): Promise<IUserProfileView[] | null> => {
+  const supabase = createClient();
+
   const {
     data: { user },
     error: authError,
@@ -24,6 +24,8 @@ export const getProfileById = async (): Promise<IUserProfileView[] | null> => {
 };
 
 export const updateProfileById = async (data: any) => {
+  const supabase = createClient();
+
   const {
     data: { user },
     error: authError,

@@ -25,7 +25,7 @@ export interface IProps
   src: string;
 }
 
-export function AvatarUI({ className, src = 's', size, ...props }: IProps) {
+export function AvatarUI({ className, src, size, ...props }: IProps) {
   return (
     <Avatar className={cn(buttonVariants({ size }))} {...props}>
       <AvatarImage src={src} alt='@shadcn' />

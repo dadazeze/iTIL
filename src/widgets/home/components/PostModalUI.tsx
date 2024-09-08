@@ -109,13 +109,6 @@ export default function PostModalUI({ userId }: IProps) {
                         />
                       )}
                     </FormUI.Field>
-                    {/* <input
-                      value={title}
-                      onChange={changeTitleHandler}
-                      type="text"
-                      placeholder="제목을 입력하세요"
-                      className="py-2 px-1 outline-none font-normal w-full text-sm"
-                    /> */}
                   </div>
                   <div className='border-b-2  mt-5'>
                     <FormUI.Field name='keyword'>
@@ -127,13 +120,6 @@ export default function PostModalUI({ userId }: IProps) {
                         />
                       )}
                     </FormUI.Field>
-                    {/* <input
-                      value={mainKeyword}
-                      onChange={changeKeywordHandler}
-                      type="text"
-                      placeholder="#대표 키워드 (i.g #Nextjs)"
-                      className="py-2 px-1 outline-none font-normal w-full text-sm"
-                    /> */}
                   </div>
                 </DialogTitle>
                 <FormUI.Field name='description'>

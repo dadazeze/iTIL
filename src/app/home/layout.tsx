@@ -1,8 +1,6 @@
-import BottomNavBarUI from '@/shared/components/common/bar/BottomNavBarUI';
 import MainAppBarUI from '@/shared/components/common/bar/MainAppBarUI';
+import MainBottomNavBarUI from '@/widgets/home/components/MainBottomNavBarUI';
 import { getUserId } from '@/widgets/home/lib/utils';
-
-export const dynamic = 'force-dynamic';
 
 export default async function Layout({
   children,
@@ -15,7 +13,7 @@ export default async function Layout({
     <>
       <MainAppBarUI />
       {children}
-      <BottomNavBarUI userId={userId ?? ''} />
+      <MainBottomNavBarUI userId={userId ?? ''} />
     </>
   );
 }

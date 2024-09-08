@@ -18,7 +18,7 @@ interface IProps {
 
 export const CardDetailUI = ({ item }: IProps) => {
   return (
-    <Card className='w-full rounded-none border-none cursor-pointer'>
+    <Card className='w-full rounded-none border-none'>
       <CardHeader>
         <AvatarProfileUI
           src={item.profiles.avatar_url}
