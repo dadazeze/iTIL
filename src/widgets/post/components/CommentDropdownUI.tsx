@@ -10,7 +10,7 @@ import {
 export default function CommentDropdownUI() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className='mr-6'>
+      <DropdownMenuTrigger className='mr-6 focus-visible:outline-grayScale-200'>
         <RadixIcon name='DotsVerticalIcon' size={20} />
       </DropdownMenuTrigger>
       <DropdownMenuPortal>

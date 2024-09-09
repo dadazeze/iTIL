@@ -31,7 +31,7 @@ export default async function PostLayout({
       <div className='pb-24'>
         <PostAppBar postKeyword={post.keyword} />
         {children}
-        <CommentBottomBarUI src={user?.at(0)?.avatar_url ?? ''} />
+        <CommentBottomBarUI user={user?.at(0)} postId={+postId} />
       </div>
     </>
   );

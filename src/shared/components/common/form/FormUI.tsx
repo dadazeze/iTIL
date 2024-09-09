@@ -5,6 +5,7 @@ import {
   FormItem,
   FormMessage,
 } from '@/shared/components/ui/form';
+import { cn } from '@/shared/lib/style/utils';
 import { ReactNode, createContext, useContext } from 'react';
 import {
   ControllerRenderProps,
@@ -16,6 +17,7 @@ interface IFormUIProps<T extends FieldValues> {
   children: ReactNode;
   form: UseFormReturn<T>;
   action: (payload: FormData) => void;
+  className?: string;
 }
 
 interface IFormContext<T extends FieldValues> {
@@ -28,10 +30,11 @@ export const FormUI = <T extends FieldValues>({
   children,
   form,
   action,
+  className,
 }: IFormUIProps<T>) => {
   return (
     <Form {...form}>
-      <form className='space-y-8' action={action}>
+      <form className={cn('space-y-8', className)} action={action}>
         <FormContext.Provider value={{ form }}>{children}</FormContext.Provider>
       </form>
     </Form>
@@ -41,16 +44,21 @@ export const FormUI = <T extends FieldValues>({
 interface IFieldsProps {
   children: (props: ControllerRenderProps<any, string>) => React.ReactNode;
   name: string;
+  className?: string;
 }
 
-const Fields: React.FC<IFieldsProps> = ({ children, name }: IFieldsProps) => {
+const Fields: React.FC<IFieldsProps> = ({
+  children,
+  name,
+  className,
+}: IFieldsProps) => {
   const { form } = useContext(FormContext);
   return (
     <FormField
       control={form?.control}
       name={name}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className={cn('w-full', className)}>
           <FormControl>{children(field)}</FormControl>
           <FormMessage />
         </FormItem>
