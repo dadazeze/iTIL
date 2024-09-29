@@ -1,7 +1,9 @@
 import { getPostById } from '@/shared/services/post';
 import { getProfileById } from '@/shared/services/profiles';
 import CommentBottomBarUI from '@/widgets/post/components/CommentBottomBarUI';
+import CommentBottomBarWrapper from '@/widgets/post/components/CommentBottomBarWrapper';
 import { PostAppBar } from '@/widgets/post/components/PostAppBar';
+import PostAppBarWrapper from '@/widgets/post/components/PostAppBarWrapper';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
@@ -19,19 +21,13 @@ export default async function PostLayout({
   if (isNaN(Number(postId))) {
     return notFound();
   }
-  const post = await getPostById(postId);
-  const user = await getProfileById();
-
-  if (!post) {
-    return notFound();
-  }
 
   return (
     <>
       <div className='pb-24'>
-        <PostAppBar postKeyword={post.keyword} />
+        <PostAppBarWrapper postId={postId} />
         {children}
-        <CommentBottomBarUI user={user?.at(0)} postId={+postId} />
+        <CommentBottomBarWrapper postId={+postId} />
       </div>
     </>
   );

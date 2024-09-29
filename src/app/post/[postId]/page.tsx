@@ -3,6 +3,7 @@ import { getPostById } from "@/shared/services/post";
 import { CardDetailUI } from "@/widgets/common/components/CardDetailUI";
 import CommentUI from "@/widgets/post/components/CommentUI";
 import CommentWrapper from "@/widgets/post/components/CommentWrapper";
+import { notFound } from "next/navigation";
 
 interface IProps {
   params: {
@@ -14,6 +15,10 @@ export default async function PostPage({ params }: IProps) {
   const postId = params.postId;
   const post = await getPostById(postId);
   const commentList = await getCommentList(postId);
+
+  if (!post) {
+    return notFound();
+  }
 
   return (
     <div className="bg-grayScale-100 flex flex-col gap-2">

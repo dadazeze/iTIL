@@ -1,4 +1,3 @@
-import React from "react";
 import { Skeleton } from "../../ui/skeleton";
 import AvatarSkeletonUI from "./AvatarSkeletonUI";
 

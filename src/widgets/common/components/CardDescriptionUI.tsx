@@ -2,7 +2,7 @@
 
 import Typography from '@/shared/components/ui/typography';
 import { getIsOverflow } from '@/shared/lib/utils';
-import DOMPurify from 'dompurify';
+import DOMPurify from "isomorphic-dompurify";
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
@@ -22,7 +22,7 @@ export default function CardDescriptionUI({ description, isDetail }: IProps) {
   return (
     <>
       <div
-        className='pt-4 pb-5 elipsis-3 h-[100px] w-[85%]'
+        className='pt-4 pb-5 elipsis-3 h-[90px] w-[85%]'
         ref={descriptionRef}
         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
       />

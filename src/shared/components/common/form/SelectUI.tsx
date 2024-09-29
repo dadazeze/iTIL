@@ -6,10 +6,10 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '@/shared/components/ui/select';
-import { ISelectItemListType } from '@/shared/types';
-import { cva } from 'class-variance-authority';
-import React, { forwardRef } from 'react';
+} from "@/shared/components/ui/select";
+import { ISelectItemListType } from "@/shared/types";
+import { cva } from "class-variance-authority";
+import React, { forwardRef } from "react";
 
 interface IProps extends React.ComponentPropsWithoutRef<typeof Select> {
   itemList: ISelectItemListType[];
@@ -18,11 +18,11 @@ interface IProps extends React.ComponentPropsWithoutRef<typeof Select> {
   onChange: (value: string) => void;
 }
 
-const selectVariants = cva('w-[180px] border-grayScale-200', {
+const selectVariants = cva("w-[180px] border-grayScale-200", {
   variants: {
     placeholder: {
-      false: 'text-grayScale-400',
-      true: 'inherit',
+      false: "text-grayScale-400",
+      true: "inherit",
     },
   },
   defaultVariants: {
@@ -40,14 +40,14 @@ const SelectUI = forwardRef<any, IProps>(
         >
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
-        <SelectContent className='border-grayScale-400'>
+        <SelectContent className="border-grayScale-400">
           <SelectGroup>
             {label && <SelectLabel>{label}</SelectLabel>}
             {itemList.map((item) => (
               <SelectItem
                 key={item.value}
                 value={item.value}
-                className='custom-hover'
+                className="custom-hover"
               >
                 {item.label}
               </SelectItem>
@@ -59,6 +59,6 @@ const SelectUI = forwardRef<any, IProps>(
   }
 );
 
-SelectUI.displayName = 'SelectUI';
+SelectUI.displayName = "SelectUI";
 
 export { SelectUI };

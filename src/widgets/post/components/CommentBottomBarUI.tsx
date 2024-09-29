@@ -19,7 +19,6 @@ interface IProps {
 }
 
 export default function CommentBottomBarUI({ user, postId }: IProps) {
-  console.log(postId, user);
   const form = useForm<CommentParams>({
     values: {
       content: '',
