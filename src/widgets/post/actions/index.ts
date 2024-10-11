@@ -6,16 +6,17 @@ import { TFormActionState } from '../../../shared/types/domain';
 
 export const createCommentAction = async (
   prevState: TFormActionState | null,
-  data: FormData
+  data: FormData,
+  extraData:  {post_id: number, user_id: string}
 ): Promise<TFormActionState> => {
   try {
     const newData = {
       content: data.get('content') as string,
-      post_id: Number(data.get('post_id')),
-      user_id: data.get('user_id') as string,
+      post_id: extraData.post_id,
+      user_id: extraData.user_id,
     };
 
-    console.log(data.get('post_id'));
+    console.log(data);
     await createCommnet(newData);
 
     revalidatePath(`/post/${newData.post_id}`);
