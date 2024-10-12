@@ -9,7 +9,6 @@ export const createPostAction = async (
   data: FormData,
   extraData: Pick<IHomePostParams, 'user_id' | 'view'>
 ): Promise<TFormActionState> => {
-  console.log(data);
   try {
     const newData = {
       title: data.get('title') as string,
