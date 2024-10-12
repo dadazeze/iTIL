@@ -70,8 +70,6 @@ export default function PostModalUI({ userId }: IProps) {
     }
   }, [state]);
 
-  console.log(state);
-
   const changeTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
   };

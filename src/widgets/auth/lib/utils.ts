@@ -1,6 +1,6 @@
-import { createClient } from '@/shared/lib/supabase/client';
+import { createNewClient } from '@/shared/lib/supabase/client';
 
-const supabase = createClient();
+const supabase = createNewClient();
 
 export const signInWithGitHub = async () => {
   const { error } = await supabase.auth.signInWithOAuth({

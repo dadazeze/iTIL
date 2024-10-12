@@ -27,7 +27,7 @@ export default async function CommentUI({ item }: IProps) {
           }`}
           createdAt={item.created_at}
         />
-        <CommentDropdownUI />
+        <CommentDropdownUI commentId={item.id} postId={item.post_id} />
       </div>
       <Card className="col-start-2 mr-6 border-grayScale-300 mb-3.5">
         <Typography className="p-2.5">{item.content}</Typography>

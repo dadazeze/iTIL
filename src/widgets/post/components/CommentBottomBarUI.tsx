@@ -45,6 +45,7 @@ export default function CommentBottomBarUI({ user, postId }: IProps) {
 
   useEffect(() => {
     if (state?.status === 'success') form.reset();
+    if (state?.status === 'error') alert(state.message);
   }, [state, form]);
 
   return (

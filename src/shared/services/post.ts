@@ -72,3 +72,11 @@ export const getPostListByDate = async (date: string) => {
 
   return data;
 };
+
+export const deletePostById = async (postId: string) => {
+  const supabase = createClient();
+  const { error } = await supabase.from('post').delete().eq('id', postId);
+  if (error) {
+    throw new Error(error.message);
+  }
+};

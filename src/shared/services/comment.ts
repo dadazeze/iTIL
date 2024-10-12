@@ -36,3 +36,11 @@ export const createCommnet = async (params: CommentParams) => {
     throw new Error(error.message);
   }
 };
+
+// export const deleteComment = async (commentId: number) => {
+//   const supabase = createClient();
+//   const { error } = await supabase.from('comment').delete().eq('id', commentId);
+//   if (error) {
+//     throw new Error(error.message);
+//   }
+// };
