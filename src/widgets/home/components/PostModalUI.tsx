@@ -81,8 +81,6 @@ export default function PostModalUI({ userId }: IProps) {
     setContents(text);
   };
 
-  console.log(form.watch('description'));
-
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -92,7 +90,7 @@ export default function PostModalUI({ userId }: IProps) {
       </DialogTrigger>
       <DialogPortal>
         <DialogContent className='w-full h-full flex items-center justify-center z-[60] bg-white p-0'>
-          <FormUI form={form} action={formAction}>
+          <FormUI form={form} action={formAction} className='h-full'>
             <div className='w-full h-full pb-4 flex flex-col'>
               <PostAppBarUI />
               <div className='px-4 mt-5 h-full flex flex-col'>
@@ -130,7 +128,7 @@ export default function PostModalUI({ userId }: IProps) {
                 </FormUI.Field>
               </div>
             </div>
-            <Button type='submit'>sdf</Button>
+            {/* <Button type='submit'>sdf</Button> */}
           </FormUI>
         </DialogContent>
       </DialogPortal>
