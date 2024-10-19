@@ -9,16 +9,16 @@ interface Iprop {
 
 // TODO: 무한스크롤 구현
 export default function Feed({ postList }: Iprop) {
-  const days = getDaysInMonth('2024-07');
+  const days = getDaysInMonth("2024-07");
   return (
     <>
-      <div className='container mx-auto p-0'>
-        <hr className='h-0.5 border-none bg-grayScale-300' />
-        <div className='flex flex-row ml-[16px] my-[6px]'>
+      <div className="container mx-auto p-0">
+        <hr className="h-0.5 border-none bg-grayScale-300" />
+        <div className="flex flex-row ml-[16px] my-[6px]">
           <div>April&nbsp;</div>
           <div>2024</div>
         </div>
-        <div className='grid grid-cols-5'>
+        <div className="grid grid-cols-5">
           {postList.map((post, index) => (
             <MyPageCard
               key={`${post.title}-${index}`}
@@ -27,6 +27,17 @@ export default function Feed({ postList }: Iprop) {
             />
           ))}
         </div>
+        {/* <div className="grid grid-cols-5">
+          {list.map((post, index) => (
+            <div key={`${post.title}-${index}`}>
+              <div className="flex flex-row ml-[16px] my-[6px]">
+                <div>{list}&nbsp;</div>
+                <div>2024</div>
+              </div>
+              <Card post={post} index={index} />
+            </div>
+          ))}
+        </div> */}
       </div>
     </>
   );

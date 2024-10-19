@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Typography from '@/shared/components/ui/typography';
 import { getIsOverflow } from '@/shared/lib/utils';
