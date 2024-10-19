@@ -19,7 +19,7 @@ export default async function Profile({ profile }: IProps) {
       <div className="flex flex-row gap-8 ">
         <AvatarUI size="l" src={profile!.avatar_url} />
         <div className="flex flex-col">
-          <div className="flex flex-row max-w-80 gap-20">
+          <div className="flex flex-row max-w-80 gap-16">
             <div className="flex flex-col color">
               <div>{profile!.username}</div>
               <div className="text-grayScale-500 text-xs">
